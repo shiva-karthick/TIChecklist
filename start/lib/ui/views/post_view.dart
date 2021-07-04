@@ -22,24 +22,24 @@ class PostView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             UIHelper.verticalSpaceLarge(),
-            Text(
-              post.title,
-              style: headerStyle,
-            ),
-            Text(
-              'by ${Provider.of<User>(context).name}',
-              style: TextStyle(fontSize: 9.0),
-            ),
-            UIHelper.verticalSpaceMedium(),
-            Text(
-              post.body,
-            ),
-            LikeButton(
-              postId: post.id,
-            ),
-            Comments(
-              post.id,
-            ),
+            // Text(
+            //   post.title,
+            //   style: headerStyle,
+            // ),
+            // Text(
+            //   'by ${Provider.of<User>(context).username}',
+            //   style: TextStyle(fontSize: 9.0),
+            // ),
+            // UIHelper.verticalSpaceMedium(),
+            // Text(
+            //   post.body,
+            // ),
+            // LikeButton(
+            //   postId: post.id,
+            // ),
+            // Comments(
+            //   post.id,
+            // ),
           ],
         ),
       ),

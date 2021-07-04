@@ -28,10 +28,10 @@ class PostListItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              '${post.title} - ${post.likes.toString()}',
+              '${post.detachment}',
               style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16.0),
             ),
-            Text(post.body, maxLines: 2, overflow: TextOverflow.fade)
+            // Text(post.body, maxLines: 2, overflow: TextOverflow.fade)
           ],
         ),
       ),

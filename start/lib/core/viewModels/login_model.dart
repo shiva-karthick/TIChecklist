@@ -12,15 +12,14 @@ class LoginModel extends BaseModel {
   Future<bool> login(userIDText) async {
     setState(ViewState.Busy);
 
-    var userID = int.tryParse(userIDText);
-    if (userID == null) {
-      errorMessage = 'Value entered is not a number';
+    if (userIDText == null || userIDText.runtimeType == int) {
+      errorMessage = 'Value entered is not a Name';
       setState(ViewState.Idle);
       return false;
+    } else {
+      await _authenticationService.login(userIDText);
+      setState(ViewState.Idle);
+      return true;
     }
-    var success = await _authenticationService.login(userID);
-
-    setState(ViewState.Idle);
-    return success;
   }
 }

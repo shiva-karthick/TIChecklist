@@ -10,15 +10,11 @@ class AuthenticationService {
 
   StreamController<User> userController = new StreamController<User>();
 
-  Future<bool> login(int userID) async {
-    var fetchedUser = await _api.getUserProfile(userID);
+  Future<bool> login(String userID) async {
+    userController.add(
+      User(username: userID),
+    );
 
-    // Check if success
-    var hasUser = fetchedUser != null;
-
-    if (hasUser) {
-      userController.add(fetchedUser);
-    }
-    return hasUser;
+    return true;
   }
 }

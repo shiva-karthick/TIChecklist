@@ -13,14 +13,29 @@ class LoginHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text('Login', style: headerStyle),
-        UIHelper.verticalSpaceMedium(),
-        Text('Enter a number between 1 - 10', style: subHeaderStyle),
+        Text(
+          'Login',
+          style: TextStyle(
+            fontSize: 35,
+            fontWeight: FontWeight.w900,
+            color: Colors.black,
+            // backgroundColor: Colors.white,
+          ),
+        ),
+        UIHelper.verticalSpaceSmall(),
+        Text(
+          'Enter your name',
+          style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w700,
+            color: Colors.black,
+          ),
+        ),
         LoginTextField(controller),
         this.validationMessage != null
             ? Text(
                 validationMessage,
-                style: TextStyle(color: Colors.red),
+                style: TextStyle(color: Colors.white),
               )
             : Container()
       ],
@@ -45,7 +60,7 @@ class LoginTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: TextField(
-          decoration: InputDecoration.collapsed(hintText: 'User Id'),
+          decoration: InputDecoration.collapsed(hintText: 'User name'),
           controller: controller),
     );
   }

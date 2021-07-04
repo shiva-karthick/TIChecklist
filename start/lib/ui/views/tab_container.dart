@@ -30,22 +30,21 @@ class _TabContainerState extends State<TabContainer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Check Lists ✅"),
-      ),
-      body: SizedBox.expand(
-        child: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() => _currentIndex = index);
-          },
-          children: <Widget>[
-            HomeView(),
-            Test(),
-            Container(
-              color: Colors.blue,
-            ),
-          ],
+      body: SafeArea(
+        child: SizedBox.expand(
+          child: PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() => _currentIndex = index);
+            },
+            children: <Widget>[
+              HomeView(),
+              Test(),
+              Container(
+                color: Colors.blue,
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavyBar(

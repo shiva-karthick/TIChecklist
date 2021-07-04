@@ -7,17 +7,17 @@ class LikeButtonModel extends BaseModel {
   PostsService _postsService = locator<PostsService>();
 
   // Get the total number of likes
-  int postLikes(int postId) {
-    return _postsService.posts.firstWhere((post) => post.id == postId).likes;
-  }
+  // int postLikes(int postId) {
+  //   return _postsService.posts.firstWhere((post) => post.id == postId).likes;
+  // }
 
-  increaseLikes(int postId) {
-    _postsService.incrementLikes(postId);
-    notifyListeners();
-  }
+  // increaseLikes(int postId) {
+  //   _postsService.incrementLikes(postId);
+  //   notifyListeners();
+  // }
 
-  decreaseLikes(int postId) {
-    _postsService.decrementLikes(postId);
-    notifyListeners();
-  }
+  // decreaseLikes(int postId) {
+  //   _postsService.decrementLikes(postId);
+  //   notifyListeners();
+  // }
 }

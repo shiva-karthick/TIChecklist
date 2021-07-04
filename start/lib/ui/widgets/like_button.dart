@@ -16,19 +16,19 @@ class LikeButton extends StatelessWidget {
     return BaseView<LikeButtonModel>(
       builder: (context, model, child) => Row(
         children: <Widget>[
-          Text("Likes : ${model.postLikes(postId)}"),
-          UIHelper.horizontalSpaceSmall(),
-          MaterialButton(
-            color: Colors.white,
-            child: Icon(Icons.thumb_up),
-            onPressed: () => {model.increaseLikes(postId)},
-          ),
-          UIHelper.horizontalSpaceSmall(),
-          MaterialButton(
-            color: Colors.white,
-            child: Icon(Icons.thumb_down),
-            onPressed: () => {model.decreaseLikes(postId)},
-          ),
+          // Text("Likes : ${model.postLikes(postId)}"),
+          // UIHelper.horizontalSpaceSmall(),
+          // MaterialButton(
+          //   color: Colors.white,
+          //   child: Icon(Icons.thumb_up),
+          //   onPressed: () => {model.increaseLikes(postId)},
+          // ),
+          // UIHelper.horizontalSpaceSmall(),
+          // MaterialButton(
+          //   color: Colors.white,
+          //   child: Icon(Icons.thumb_down),
+          //   onPressed: () => {model.decreaseLikes(postId)},
+          // ),
         ],
       ),
     );

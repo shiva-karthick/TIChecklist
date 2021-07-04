@@ -9,15 +9,15 @@ class PostsService {
   List<Post> _posts;
   List<Post> get posts => _posts;
 
-  Future getPostsForUsers(int userId) async {
-    _posts = await _api.getPostsForUser(userId);
+  Future getPosts() async {
+    return await _api.getPostsForUser();
   }
 
-  void incrementLikes(int postId) {
-    _posts.firstWhere((post) => post.id == postId).likes++;
-  }
+  // void incrementLikes(int postId) {
+  //   _posts.firstWhere((post) => post.id == postId).likes++;
+  // }
 
-  void decrementLikes(int postId) {
-    _posts.firstWhere((post) => post.id == postId).likes--;
-  }
+  // void decrementLikes(int postId) {
+  //   _posts.firstWhere((post) => post.id == postId).likes--;
+  // }
 }
