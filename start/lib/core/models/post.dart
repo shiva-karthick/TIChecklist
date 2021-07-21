@@ -1,11 +1,11 @@
 class Post {
-  String detachment;
-  int totalMissingItems;
+  Map<String, dynamic> json;
+  Post(this.json);
 
-  Post({this.detachment, this.totalMissingItems});
+  factory Post.fromJson(dynamic data) {
+    assert(data is Map);
 
-  Post.fromJson(Map<String, dynamic> json) {
-    detachment = json['detachment'];
+    return Post(data);
   }
 
   // // RETURN TYPE function_name(){}

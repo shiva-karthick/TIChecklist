@@ -39,7 +39,7 @@ class _TabContainerState extends State<TabContainer> {
             },
             children: <Widget>[
               HomeView(),
-              Test(),
+              // Test(),
               Container(
                 color: Colors.blue,
               ),

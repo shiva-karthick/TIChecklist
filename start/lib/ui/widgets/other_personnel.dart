@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
-class OtherPersonnel extends StatelessWidget {
-  const OtherPersonnel({Key key}) : super(key: key);
+class OtherPersonnel extends StatefulWidget {
+  final String otherPersonnel;
+  const OtherPersonnel({Key key, this.otherPersonnel}) : super(key: key);
 
+  @override
+  _OtherPersonnelState createState() => _OtherPersonnelState();
+}
+
+class _OtherPersonnelState extends State<OtherPersonnel> {
   @override
   Widget build(BuildContext context) {
     return Container(
       child: FormBuilderTextField(
         name: 'otherPersonnel',
+        initialValue: widget.otherPersonnel ?? "",
         keyboardType: TextInputType.multiline,
         maxLines: null,
         decoration: InputDecoration(

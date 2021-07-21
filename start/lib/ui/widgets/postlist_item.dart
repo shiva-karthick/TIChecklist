@@ -28,7 +28,7 @@ class PostListItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              '${post.detachment}',
+              '${post.json['detachment']}',
               style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16.0),
             ),
             // Text(post.body, maxLines: 2, overflow: TextOverflow.fade)

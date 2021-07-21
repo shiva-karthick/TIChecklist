@@ -25,11 +25,10 @@ class Api {
     return User.fromJson(json.decode(response.body));
   }
 
-  /// Private method
-  Future<String> get _localPath async {
-    final directory = await getExternalStorageDirectory();
-    return directory.path;
-  }
+  // Future<String> get _localPath async {
+  //   final directory = await getExternalStorageDirectory();
+  //   return directory.path;
+  // }
 
   /// Get all the files in the directory
   Future<void> _showFilesinDir() async {
