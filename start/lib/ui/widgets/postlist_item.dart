@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/core/models/post.dart';
 
+// Add the charts here
 class PostListItem extends StatelessWidget {
   final Post post;
   final Function onTap;
@@ -28,7 +29,7 @@ class PostListItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              '${post.json['detachment']}',
+              '${post.json['node_number']}',
               style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16.0),
             ),
             // Text(post.body, maxLines: 2, overflow: TextOverflow.fade)

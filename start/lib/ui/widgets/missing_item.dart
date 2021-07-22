@@ -68,9 +68,10 @@ class _MissingItemState extends State<MissingItem> {
                 Flexible(
                   flex: 1,
                   child: FormBuilderCheckbox(
-                      title: Text(''),
-                      name: 'missingItemDone${widget.index}',
-                      initialValue: false),
+                    title: Text(''),
+                    name: 'missingItemDone${widget.index}',
+                    initialValue: false,
+                  ),
                 )
               ],
             ),

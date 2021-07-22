@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 
-Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
+Widget generateRightHandSideColumnRowMiscPart2(
+    BuildContext context, int index) {
   double remarksWidth = 172;
   double remarksHeight = 136;
 
@@ -12,8 +13,7 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
         Row(
           children: <Widget>[
             Container(
-              child: Text(
-                  "a. Check for physical condition, loose strap & wiring condition"),
+              child: Text("a. Check physical connection"),
               width: 125,
               height: 80,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -22,20 +22,18 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             Container(
               child: Column(
                 children: <Widget>[
-                  Text(
-                      "- LCD display, audio tone,keypad okie and no other damage"),
-                  Text(
-                      "> Ethernet cable - VRAS client switch 1 P7 to P9 respectively"),
+                  Text("- No damage on connector"),
+                  Text("- No exposed cable             "),
                 ],
               ),
               width: 175,
-              height: 104,
+              height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "SIP_phone_faulty_1",
+                name: "RF_jumper_cable_25_BNC_N_faulty_1",
                 initialValue: false,
                 title: Text(""),
               ),
@@ -46,11 +44,11 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderTextField(
-                name: "SIP_phone_remarks_1",
+                name: "RF_jumper_cable_25_BNC_N_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: InputDecoration(
-                  labelText: 'SIP phone (a)',
+                  labelText: '(a.) 2.5m (BNC-N type)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -63,10 +61,10 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "SIP_phone_missing_1",
+                name: "RF_jumper_cable_25_BNC_N_missing_1",
                 initialValue: false,
                 title: Text(
-                  "1 pcs",
+                  "2 pcs",
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -82,66 +80,7 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
         Row(
           children: <Widget>[
             Container(
-              child: Text("b. Check IP address"),
-              width: 125,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderTextField(
-                name: 'SIP_phone_IP_address',
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                decoration: InputDecoration(
-                  labelText: 'IP address',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              width: 175,
-              height: 62,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderCheckbox(
-                name: "SIP_phone_faulty_2",
-                initialValue: false,
-                title: Text(""),
-              ),
-              width: 50,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderTextField(
-                name: "SIP_phone_remarks_2",
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                decoration: InputDecoration(
-                  labelText: 'SIP phone (b)',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                initialValue:
-                    'RID 1 - x.x.x.233\n RID2 - x.x.x.234\n RID3 - x.x.x.235\n RID4 - x.x.x.236',
-              ),
-              width: remarksWidth,
-              height: remarksHeight,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-          ],
-        ),
-        Row(
-          children: <Widget>[
-            Container(
-              child: Text(
-                  "a. Check for physical condition, loose bolts, nuts & wiring connection"),
+              child: Text("b. Check connectivity"),
               width: 125,
               height: 80,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -150,89 +89,10 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             Container(
               child: Column(
                 children: <Widget>[
-                  FormBuilderTextField(
-                    name: 'vras_serial_number',
-                    keyboardType: TextInputType.multiline,
-                    maxLines: null,
-                    decoration: InputDecoration(
-                      hintText: 'A123456BC',
-                      labelText: 'Serial No:',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                  UIHelper.verticalSpaceSmall(),
-                  Text("> P1 - RGW1                                     "),
-                  Text("> P2 - RGW2                                     "),
-                  Text("> P5 - IDC laptop                               "),
-                  Text("> P1 - SIP01                                    "),
-                  Text("> P21 - Fiber Patch Panel FOCA 1 RID/HFD/DSD/TTD"),
-                  Text("> P22 - Fiber Patch Panel FOCA 2 RID/HFD/DSD/TTD"),
+                  Text("- Use multimeter to check resistance ≤ 1Ω"),
+                  Text("- Ground to Signal not shorted"),
                 ],
               ),
-              width: 175,
-              height: 256,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderCheckbox(
-                name: "vras_faulty_1",
-                initialValue: false,
-                title: Text(""),
-              ),
-              width: 50,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderTextField(
-                name: "vras_remarks_1",
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                decoration: InputDecoration(
-                  labelText: 'VRAS (a)',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              width: remarksWidth,
-              height: remarksHeight,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderCheckbox(
-                name: "vras_missing_1",
-                initialValue: false,
-                title: Text(
-                  "1 pcs",
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              width: 112,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-          ],
-        ),
-        Row(
-          children: <Widget>[
-            Container(
-              child: Text("b. Check connected port LED lighted"),
-              width: 125,
-              height: 80,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: Text('- Activity LED lighted/blinking'),
               width: 175,
               height: 72,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -240,7 +100,7 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "vras_faulty_2",
+                name: "RF_jumper_cable_25_BNC_N_faulty_2",
                 initialValue: false,
                 title: Text(""),
               ),
@@ -251,11 +111,11 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderTextField(
-                name: "vras_remarks_2",
+                name: "RF_jumper_cable_25_BNC_N_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: InputDecoration(
-                  labelText: 'VRAS (b)',
+                  labelText: '(b.) 2.5m (BNC-N type)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -271,7 +131,7 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
         Row(
           children: <Widget>[
             Container(
-              child: Text("c. Check profile"),
+              child: Text("a. Check physical connection"),
               width: 125,
               height: 80,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -280,22 +140,18 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             Container(
               child: Column(
                 children: <Widget>[
-                  Text(
-                      "- Connect console cable from FW laptop USB port to Switch console port"),
-                  Text(
-                      "- Console into Switch using hyperterminal                             "),
-                  Text(
-                      '- Ensure correct profile                                              '),
+                  Text("- No damage on connector"),
+                  Text("- No exposed cable             "),
                 ],
               ),
               width: 175,
-              height: 96,
+              height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "vras_faulty_3",
+                name: "RF_jumper_cable_25_N_N_faulty_1",
                 initialValue: false,
                 title: Text(""),
               ),
@@ -306,72 +162,11 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderTextField(
-                name: "vras_remarks_3",
+                name: "RF_jumper_cable_25_N_N_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: InputDecoration(
-                  labelText: 'VRAS (c)',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              width: remarksWidth,
-              height: remarksHeight,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-          ],
-        ),
-        Row(
-          children: <Widget>[
-            Container(
-              child: Text(
-                  "a. Check for physical condition, loose bolts, nuts & wiring connection"),
-              width: 125,
-              height: 80,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: Column(
-                children: <Widget>[
-                  FormBuilderTextField(
-                    name: 'IDC_laptop_serial_number',
-                    decoration: InputDecoration(
-                      labelText: 'Serial Number',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                  UIHelper.verticalSpaceSmall(),
-                  Text("> Ethernet cable - VRAS client switch 1 P5"),
-                ],
-              ),
-              width: 175,
-              height: 104,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderCheckbox(
-                name: "IDC_laptop_faulty_1",
-                initialValue: false,
-                title: Text(""),
-              ),
-              width: 50,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderTextField(
-                name: "IDC_laptop_remarks_1",
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                decoration: InputDecoration(
-                  labelText: 'IDC Laptop (a)',
+                  labelText: '(a.) 2.5m (N-N type)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -384,11 +179,13 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "IDC_laptop_missing_1",
+                name: "RF_jumper_cable_25_N_N_missing_1",
                 initialValue: false,
                 title: Text(
                   "1 pcs",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
                 ),
               ),
               width: 112,
@@ -401,23 +198,27 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
         Row(
           children: <Widget>[
             Container(
-              child: Text("b. Check IP address"),
+              child: Text("b. Check connectivity"),
               width: 125,
-              height: 52,
+              height: 80,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
             Container(
-              child: Text(
-                  "- Ensure IP address of the network setting of the laptop is correct"),
+              child: Column(
+                children: <Widget>[
+                  Text("- Use multimeter to check resistance ≤ 1Ω"),
+                  Text("- Ground to Signal not shorted"),
+                ],
+              ),
               width: 175,
-              height: 52,
+              height: 72,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "IDC_laptop_faulty_2",
+                name: "RF_jumper_cable_25_N_N_faulty_2",
                 initialValue: false,
                 title: Text(""),
               ),
@@ -428,13 +229,11 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderTextField(
-                name: "IDC_laptop_remarks_2",
+                name: "RF_jumper_cable_25_N_N_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
-                initialValue:
-                    'IP:\nRID1 - x.x.x.133\nRID2 - x.x.x.134\nRID3 - x.x.x.135\nRID4 - x.x.x.136\nSubnet: x.x.x.224\nGateway: x.x.x.129\nDNS same as IP',
                 decoration: InputDecoration(
-                  labelText: 'IDC Laptop (b)',
+                  labelText: '(b.) 2.5m (N-N type)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -450,18 +249,306 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
         Row(
           children: <Widget>[
             Container(
-              child: Text("c. Check for CMOS battery due date"),
+              child: Text("a. Check physical connection"),
+              width: 125,
+              height: 80,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Column(
+                children: <Widget>[
+                  Text("- No damage on connector"),
+                  Text("- No exposed cable             "),
+                ],
+              ),
+              width: 175,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderCheckbox(
+                name: "RF_cable_drum_15_faulty_1",
+                initialValue: false,
+                title: Text(""),
+              ),
+              width: 50,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderTextField(
+                name: "RF_cable_drum_15_remarks_1",
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                decoration: InputDecoration(
+                  labelText: '(a.) RF drum 15m',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              width: remarksWidth,
+              height: remarksHeight,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderCheckbox(
+                name: "RF_cable_drum_15_missing_1",
+                initialValue: false,
+                title: Text(
+                  "2 pcs",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              width: 112,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            Container(
+              child: Text("b. Check connectivity"),
+              width: 125,
+              height: 80,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Column(
+                children: <Widget>[
+                  Text("- Use multimeter to check resistance ≤ 1Ω"),
+                  Text("- Ground to Signal not shorted"),
+                ],
+              ),
+              width: 175,
+              height: 72,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderCheckbox(
+                name: "RF_cable_drum_15_missing_2",
+                initialValue: false,
+                title: Text(""),
+              ),
+              width: 50,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderTextField(
+                name: "RF_cable_drum_15_remarks_2",
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                decoration: InputDecoration(
+                  labelText: '(b.) RF drum 15m',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              width: remarksWidth,
+              height: remarksHeight,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            Container(
+              child: Text("a. Check physical condition"),
+              width: 125,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text("-No damage"),
+              width: 175,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderCheckbox(
+                name: "chairs_faulty",
+                initialValue: false,
+                title: Text(""),
+              ),
+              width: 50,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderTextField(
+                name: "chairs_remarks",
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                decoration: InputDecoration(
+                  labelText: 'Chairs',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              width: remarksWidth,
+              height: remarksHeight,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderCheckbox(
+                name: "chairs_missing",
+                initialValue: false,
+                title: Text(
+                  "2 pcs",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              width: 112,
+              height: 54,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            Container(
+              child: Text("a. Check physical condition"),
               width: 125,
               height: 104,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text("- No damage and safety pin in secured place"),
+              width: 175,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderCheckbox(
+                name: "fire_extinguisher_faulty_1",
+                initialValue: false,
+                title: Text(""),
+              ),
+              width: 50,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderTextField(
+                name: "fire_extinguisher_remarks_1",
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                decoration: InputDecoration(
+                  labelText: '(a.) Fire Extinguisher',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              width: remarksWidth,
+              height: remarksHeight,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderCheckbox(
+                name: "fire_extinguisher_missing_1",
+                initialValue: false,
+                title: Text(
+                  "1 pcs",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              width: 112,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            Container(
+              child: Text("b. Check pressure indicator"),
+              width: 125,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text("- Indicator in green zone"),
+              width: 175,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderCheckbox(
+                name: "fireExtinguisher_faulty_2",
+                initialValue: false,
+                title: Text(""),
+              ),
+              width: 50,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderTextField(
+                name: "fireExtinguisher_remarks_2",
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                decoration: InputDecoration(
+                  labelText: '(b.) Fire Extinguisher',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              width: remarksWidth,
+              height: remarksHeight,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            Container(
+              child: Text("c. Next PM due date"),
+              width: 125,
+              height: 80,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
             Container(
               child: FormBuilderDateTimePicker(
-                name: 'IDC_laptop_due_date',
+                name: "fireExtinguisherDue_date",
                 initialValue: DateTime.now(),
                 decoration: InputDecoration(
-                  labelText: 'IDC Laptop due date',
+                  labelText: 'Due Date:',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -474,7 +561,7 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "IDC_laptop_faulty_3",
+                name: "fire_extinguisher_faulty_3",
                 initialValue: false,
                 title: Text(""),
               ),
@@ -485,11 +572,11 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderTextField(
-                name: "IDC_laptop_remarks_3",
+                name: "fire_extinguisher_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: InputDecoration(
-                  labelText: 'IDC Laptop (c)',
+                  labelText: '(c.) Fire Extinguisher',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -505,14 +592,14 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
         Row(
           children: <Widget>[
             Container(
-              child: Text("a. Check power and ready status light"),
+              child: Text("a. Check physical condition"),
               width: 125,
-              height: 52,
+              height: 80,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
             Container(
-              child: Text("- Light should be in green colour"),
+              child: Text("- No damage"),
               width: 175,
               height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -520,7 +607,7 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "radio_gateway_1_faulty_1",
+                name: "antenna_base_faulty_1",
                 initialValue: false,
                 title: Text(""),
               ),
@@ -531,11 +618,11 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderTextField(
-                name: "radio_gateway_1_remarks_1",
+                name: "AntennaBase_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: InputDecoration(
-                  labelText: 'Radio Gateway (a)',
+                  labelText: '(a.) Antenna Base',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -548,11 +635,13 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "radio_gateway_1_missing_1",
+                name: "AntennaBase_missing_1",
                 initialValue: false,
                 title: Text(
-                  "1 set",
-                  style: TextStyle(fontSize: 20),
+                  "6 pcs",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
                 ),
               ),
               width: 112,
@@ -565,23 +654,31 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
         Row(
           children: <Widget>[
             Container(
-              child:
-                  Text("b. Check all cables are connected according to label"),
+              child: Text("b. Connectivity check"),
               width: 125,
               height: 80,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
             Container(
-              child: Text('- 6 x DSUB-9 connected to Radio GateWay Panel'),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                      "- Ensure top center metal piece is shorted to the connector signal pin"),
+                  Text(
+                      '- Ensure the surrounding top metal piece is shorted to the connector grounding'),
+                  Text(
+                      '- Ensure connector signal pin is not shorted to the grounding'),
+                ],
+              ),
               width: 175,
-              height: 52,
+              height: 144,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "radio_gateway_1_faulty_2",
+                name: "antenna_base_faulty_2",
                 initialValue: false,
                 title: Text(""),
               ),
@@ -592,11 +689,11 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderTextField(
-                name: "radio_gateway_1_remarks_2",
+                name: "antenna_base_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: InputDecoration(
-                  labelText: 'Radio Gateway (b)',
+                  labelText: '(b.) Antenna Base',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -612,15 +709,14 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
         Row(
           children: <Widget>[
             Container(
-              child: Text("c. Check IP address"),
+              child: Text("a. Check physical condition"),
               width: 125,
               height: 80,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
             Container(
-              child:
-                  Text("- IP address correct according to the vehicle profile"),
+              child: Text("- No damage to both horse shoes pin"),
               width: 175,
               height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -628,7 +724,7 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "radio_gateway_1_faulty_3",
+                name: "lower_whip_section_faulty_1",
                 initialValue: false,
                 title: Text(""),
               ),
@@ -639,106 +735,11 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderTextField(
-                name: "radio_gateway_1_remarks_3",
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                initialValue:
-                    'RID1 - x.x.x.164\nRID2 - x.x.x.165\nRID3 - x.x.x.166\nRID4 - x.x.x.167',
-                decoration: InputDecoration(
-                  labelText: 'Radio Gateway (c)',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              width: remarksWidth,
-              height: remarksHeight,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-          ],
-        ),
-        Row(
-          children: <Widget>[
-            Container(
-              child: Text("d. Test port by dial"),
-              width: 125,
-              height: 80,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: Text(
-                  "- SIP phone dial to 6 x radio, one at a time. Port in use should light up"),
-              width: 175,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderCheckbox(
-                name: "radio_gateway_1_faulty_4",
-                initialValue: false,
-                title: Text(""),
-              ),
-              width: 50,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderTextField(
-                name: "radio_gateway_1_remarks_4",
+                name: "lower_whip_section_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: InputDecoration(
-                  labelText: 'Radio Gateway (d)',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              width: remarksWidth,
-              height: remarksHeight,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-          ],
-        ),
-        Row(
-          children: <Widget>[
-            Container(
-              child: Text("a. Check power and ready status light"),
-              width: 125,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: Text("- Light should be in green colour"),
-              width: 175,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderCheckbox(
-                name: "radio_gateway_2_faulty_1",
-                initialValue: false,
-                title: Text(""),
-              ),
-              width: 50,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderTextField(
-                name: "radio_gateway_2_remarks_1",
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                decoration: InputDecoration(
-                  labelText: 'Radio Gateway (a)',
+                  labelText: '(a.) Lower Whip',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -751,11 +752,13 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "radio_gateway_2_missing_1",
+                name: "lower_whip_section_missing_1",
                 initialValue: false,
                 title: Text(
-                  "1 set",
-                  style: TextStyle(fontSize: 20),
+                  "6 pcs",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
                 ),
               ),
               width: 112,
@@ -768,103 +771,7 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
         Row(
           children: <Widget>[
             Container(
-              child:
-                  Text("b. Check all cables are connected according to label"),
-              width: 125,
-              height: 80,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: Text('- 6 x DSUB-9 connected to Radio GateWay Panel'),
-              width: 175,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderCheckbox(
-                name: "radio_gateway_2_faulty_2",
-                initialValue: false,
-                title: Text(""),
-              ),
-              width: 50,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderTextField(
-                name: "radio_gateway_2_remarks_2",
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                decoration: InputDecoration(
-                  labelText: 'Radio Gateway (b)',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              width: remarksWidth,
-              height: remarksHeight,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-          ],
-        ),
-        Row(
-          children: <Widget>[
-            Container(
-              child: Text("c. Check IP address"),
-              width: 125,
-              height: 80,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child:
-                  Text("- IP address correct according to the vehicle profile"),
-              width: 175,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderCheckbox(
-                name: "radio_gateway_2_faulty_3",
-                initialValue: false,
-                title: Text(""),
-              ),
-              width: 50,
-              height: 52,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-            Container(
-              child: FormBuilderTextField(
-                name: "radio_gateway_2_remarks_3",
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                initialValue:
-                    'RID1 - x.x.x.164\nRID2 - x.x.x.165\nRID3 - x.x.x.166\nRID4 - x.x.x.167',
-                decoration: InputDecoration(
-                  labelText: 'Radio Gateway (c)',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              width: remarksWidth,
-              height: remarksHeight,
-              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-              alignment: Alignment.centerLeft,
-            ),
-          ],
-        ),
-        Row(
-          children: <Widget>[
-            Container(
-              child: Text("d. Test port by dial"),
+              child: Text("b. Connectivity check"),
               width: 125,
               height: 80,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -872,7 +779,7 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: Text(
-                  "- SIP phone dial to 6 x radio, one at a time. Port in use should light up"),
+                  '- Ensure horse shoes pin is not shorted to surrounding grounding plate'),
               width: 175,
               height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -880,7 +787,7 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "radio_gateway_2_faulty_4",
+                name: "lower_whip_section_faulty_2",
                 initialValue: false,
                 title: Text(""),
               ),
@@ -891,11 +798,11 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
             ),
             Container(
               child: FormBuilderTextField(
-                name: "radio_gateway_2_remarks_4",
+                name: "lower_whip_section_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: InputDecoration(
-                  labelText: 'Radio Gateway (d)',
+                  labelText: '(b.) Lower Whip',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -907,7 +814,69 @@ Widget generateRightHandSideColumnRowVRAS(BuildContext context, int index) {
               alignment: Alignment.centerLeft,
             ),
           ],
-        )
+        ),
+        Row(
+          children: <Widget>[
+            Container(
+              child: Text("a. Check physical connection"),
+              width: 125,
+              height: 80,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text('- No damage'),
+              width: 175,
+              height: 72,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderCheckbox(
+                name: "antenna_head_faulty_1",
+                initialValue: false,
+                title: Text(""),
+              ),
+              width: 50,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderTextField(
+                name: "antenna_head_remarks_1",
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                decoration: InputDecoration(
+                  labelText: 'Antenna Head',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              width: remarksWidth,
+              height: remarksHeight,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: FormBuilderCheckbox(
+                name: "antenna_head_missing_1",
+                initialValue: false,
+                title: Text(
+                  "1 pcs",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              width: 112,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+          ],
+        ),
       ],
     ),
   );

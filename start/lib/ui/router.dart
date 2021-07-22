@@ -19,10 +19,7 @@ class myRouter {
         return MaterialPageRoute(builder: (_) => HomeView());
       case '/login':
         return MaterialPageRoute(builder: (_) => LoginView());
-      // case '/rid/exterior':
-      //   return MaterialPageRoute(builder: (_) => RidExterior());
-      // case '/test':
-      //   return MaterialPageRoute(builder: (_) => Test());
+
       case '/post':
         var post = settings.arguments as Post;
         return MaterialPageRoute(

@@ -19,7 +19,7 @@ class VehicleModel extends BaseModel {
   // }
 
   Future<File> requestPermissionAndWriteData(_data) async {
-    String detachment = _data["detachment"];
+    String detachment = _data["vehicle_number"];
     if (await Permission.storage.request().isGranted) {
       // Either the permission was already granted before or the user just granted it.
       final path = await localPath;
@@ -46,7 +46,7 @@ class VehicleModel extends BaseModel {
   Future<Map<String, dynamic>> readData() async {
     try {
       final path = await localPath;
-      final file = File('$path/N36.json');
+      final file = File('$path/MID1234.json');
       Map<String, dynamic> myJson =
           await json.decode(await file.readAsString());
       print(myJson.toString());

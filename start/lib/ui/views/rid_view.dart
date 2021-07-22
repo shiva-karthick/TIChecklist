@@ -5,17 +5,27 @@ import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:provider_architecture/ui/views/rid/detachment_detail.dart';
 import 'package:provider_architecture/ui/views/rid/electrical_system_widgets/FirstColumnRowElectricalSystem.dart';
 import 'package:provider_architecture/ui/views/rid/electrical_system_widgets/rightHandSideColumnRowElectricalSystem.dart';
 import 'package:provider_architecture/ui/views/rid/exterior_widgets/FirstColumnRowExterior.dart';
 import 'package:provider_architecture/ui/views/rid/exterior_widgets/rightHandSideColumnRowExterior.dart';
+import 'package:provider_architecture/ui/views/rid/intra_node_link/FirstColumnRowIntraNodeLink.dart';
+import 'package:provider_architecture/ui/views/rid/intra_node_link/rightHandSideColumnRowIntraNodeLink.dart';
 import 'package:provider_architecture/ui/views/rid/misc_part1/FirstColumnRowMiscPart1.dart';
 import 'package:provider_architecture/ui/views/rid/misc_part1/rightHandSideColumnRowMiscPart1.dart';
 import 'package:provider_architecture/ui/views/rid/misc_part2/FirstColumnRowMiscPart2.dart';
 import 'package:provider_architecture/ui/views/rid/misc_part2/rightHandSideColumnRowMiscPart2.dart';
+import 'package:provider_architecture/ui/views/rid/vhf_radio_system/FirstColumnRowVHF.dart';
+import 'package:provider_architecture/ui/views/rid/vhf_radio_system/rightHandSideColumnRowVHF.dart';
 import 'package:provider_architecture/ui/views/rid/vras/FirstColumnRowVRAS.dart';
 import 'package:provider_architecture/ui/views/rid/vras/rightHandSideColumnRowVRAS.dart';
 import 'package:provider_architecture/ui/widgets/Key/formKey.dart';
+import 'package:provider_architecture/ui/widgets/completion_status.dart';
+import 'package:provider_architecture/ui/widgets/fmw1_personnel.dart';
+import 'package:provider_architecture/ui/widgets/global.dart' as global;
+import 'package:provider_architecture/ui/widgets/other_personnel.dart';
+import 'package:provider_architecture/ui/widgets/remarks.dart';
 
 class RidView extends StatefulWidget {
   RidView();
@@ -25,8 +35,8 @@ class RidView extends StatefulWidget {
 }
 
 class _RidView extends State<RidView> {
-  // final _formKey = global.formKey;
-  final _formKey = FormKeys().formKey;
+  final _formKey = global.formKey;
+  // final _formKey = FormKeys().formKey;
 
   Map<String, dynamic> data;
 
@@ -36,8 +46,8 @@ class _RidView extends State<RidView> {
   bool visibilityMiscellaneousPart2 = false;
 
   bool visibilityVRAS = false;
-  bool visibilityVHFRadioSystem = true;
-  bool visibilityIntraNodeLink = true;
+  bool visibilityVHFRadioSystem = false;
+  bool visibilityIntraNodeLink = false;
 
   @override
   Widget build(BuildContext context) {
@@ -52,12 +62,20 @@ class _RidView extends State<RidView> {
           title: Text('RID View'),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.redo),
+              icon: Icon(Icons.save),
               onPressed: () {
                 // _formKey.currentState.reset();
                 _formKey.currentState.save();
+                data = _formKey.currentState.value;
+                model.requestPermissionAndWriteData(data);
                 print(_formKey.currentState.value);
                 // model.readData();
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.check),
+              onPressed: () {
+                model.readData();
               },
             ),
           ],
@@ -77,6 +95,7 @@ class _RidView extends State<RidView> {
                     physics: ClampingScrollPhysics(),
                     // mainAxisSize: MainAxisSize.min,
                     children: [
+                      DetachmentDetail(),
                       ElevatedButton(
                         onPressed: () {
                           visibilityExterior = !visibilityExterior;
@@ -427,6 +446,145 @@ class _RidView extends State<RidView> {
                               ),
                             )
                           : Container(),
+                      ElevatedButton(
+                        onPressed: () {
+                          visibilityVHFRadioSystem = !visibilityVHFRadioSystem;
+                          setState(() {});
+                        },
+                        child: Text("VHF Radio System↕️"),
+                      ),
+                      visibilityVHFRadioSystem
+                          ? Visibility(
+                              maintainSize: true,
+                              maintainAnimation: true,
+                              maintainState: true,
+                              visible: visibilityVHFRadioSystem,
+                              child: SizedBox(
+                                width:
+                                    1000, // Should be more than the rightHandSideColumnWidth
+                                height: 4200, //
+                                child: HorizontalDataTable(
+                                  leftHandSideColumnWidth: 100,
+                                  rightHandSideColumnWidth: 800,
+                                  isFixedHeader: true,
+                                  rowSeparatorWidget: const Divider(
+                                    color: Colors.black54,
+                                    height: 1.0,
+                                    thickness: 0.0,
+                                  ),
+                                  verticalScrollbarStyle: const ScrollbarStyle(
+                                    isAlwaysShown: true,
+                                    thickness: 4.0,
+                                    radius: Radius.circular(5.0),
+                                  ),
+                                  horizontalScrollbarStyle:
+                                      const ScrollbarStyle(
+                                    isAlwaysShown: true,
+                                    thickness: 4.0,
+                                    radius: Radius.circular(5.0),
+                                  ),
+                                  headerWidgets: _getTitleWidget(),
+                                  leftSideItemBuilder: (context, index) {
+                                    return generateFirstColumnRowVHF(
+                                        context, index);
+                                  },
+                                  rightSideItemBuilder: (context, index) {
+                                    return generateRightHandSideColumnRowVHF(
+                                        context, index);
+                                  },
+                                  itemCount: 1,
+                                ),
+                              ),
+                            )
+                          : Container(),
+                      ElevatedButton(
+                        onPressed: () {
+                          visibilityIntraNodeLink = !visibilityIntraNodeLink;
+                          setState(() {});
+                        },
+                        child: Text("Intra-Node Link↕️"),
+                      ),
+                      visibilityIntraNodeLink
+                          ? Visibility(
+                              maintainSize: true,
+                              maintainAnimation: true,
+                              maintainState: true,
+                              visible: visibilityIntraNodeLink,
+                              child: SizedBox(
+                                width:
+                                    1000, // Should be more than the rightHandSideColumnWidth
+                                height: 530, //
+                                child: HorizontalDataTable(
+                                  leftHandSideColumnWidth: 100,
+                                  rightHandSideColumnWidth: 800,
+                                  isFixedHeader: true,
+                                  rowSeparatorWidget: const Divider(
+                                    color: Colors.black54,
+                                    height: 1.0,
+                                    thickness: 0.0,
+                                  ),
+                                  verticalScrollbarStyle: const ScrollbarStyle(
+                                    isAlwaysShown: true,
+                                    thickness: 4.0,
+                                    radius: Radius.circular(5.0),
+                                  ),
+                                  horizontalScrollbarStyle:
+                                      const ScrollbarStyle(
+                                    isAlwaysShown: true,
+                                    thickness: 4.0,
+                                    radius: Radius.circular(5.0),
+                                  ),
+                                  headerWidgets: _getTitleWidget(),
+                                  leftSideItemBuilder: (context, index) {
+                                    return generateFirstColumnRowIntraNodeLink(
+                                        context, index);
+                                  },
+                                  rightSideItemBuilder: (context, index) {
+                                    return generateRightHandSideColumnRowIntraNodeLink(
+                                        context, index);
+                                  },
+                                  itemCount: 1,
+                                ),
+                              ),
+                            )
+                          : Container(),
+                      UIHelper.verticalSpaceSmall(),
+                      Text(
+                        'FMW1 personnel',
+                        style: TextStyle(
+                          fontSize: 24,
+                        ),
+                      ),
+                      UIHelper.verticalSpaceSmall(),
+                      FMW1personnel(
+                        fmw1Personnel: "model.post.json[]",
+                      ),
+                      UIHelper.verticalSpaceSmall(),
+                      Text(
+                        'Other personnels',
+                        style: TextStyle(
+                          fontSize: 24,
+                        ),
+                      ),
+                      UIHelper.verticalSpaceSmall(),
+                      OtherPersonnel(
+                        otherPersonnel: "model.post.json[]",
+                      ),
+                      UIHelper.verticalSpaceSmall(),
+                      Text(
+                        'Remarks',
+                        style: TextStyle(
+                          fontSize: 24,
+                        ),
+                      ),
+                      UIHelper.verticalSpaceSmall(),
+                      Remarks(
+                        remarks: "model.post.json[]",
+                      ),
+                      CompletionStatus(
+                        value: 7.0,
+                      ),
+                      UIHelper.verticalSpaceLarge(),
                     ],
                   ),
                 ),
