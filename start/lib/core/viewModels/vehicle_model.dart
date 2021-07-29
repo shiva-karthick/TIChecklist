@@ -19,12 +19,12 @@ class VehicleModel extends BaseModel {
   // }
 
   Future<File> requestPermissionAndWriteData(_data) async {
-    String detachment = _data["vehicle_number"];
+    String node_number = _data["node_number"];
     if (await Permission.storage.request().isGranted) {
       // Either the permission was already granted before or the user just granted it.
       final path = await localPath;
 
-      final file = File('$path/$detachment.json');
+      final file = File('$path/$node_number.json');
       // Create a new Map<String,dynamic>
       modifiedData = {}..addAll(_data);
       // Get the keys and convert all DateTime objects to String
@@ -46,7 +46,7 @@ class VehicleModel extends BaseModel {
   Future<Map<String, dynamic>> readData() async {
     try {
       final path = await localPath;
-      final file = File('$path/MID1234.json');
+      final file = File('$path/Node 36 RID2.json');
       Map<String, dynamic> myJson =
           await json.decode(await file.readAsString());
       print(myJson.toString());

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:intl/intl.dart';
+import 'package:provider_architecture/core/models/post.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 
 Widget generateRightHandSideColumnRowMiscPart1(
-    BuildContext context, int index) {
+    BuildContext context, int index, Post data) {
   double remarksWidth = 172;
   double remarksHeight = 136;
 
@@ -30,7 +32,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "light_system_faulty",
-                initialValue: false,
+                initialValue: data.json["light_system_faulty"] != null
+                    ? data.json["light_system_faulty"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -40,9 +44,12 @@ Widget generateRightHandSideColumnRowMiscPart1(
             ),
             Container(
               child: FormBuilderTextField(
-                name: "LightSystem_remarks",
+                name: "light_system_remarks",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["light_system_remarks"] != null
+                    ? data.json["light_system_remarks"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'Light System',
                   border: OutlineInputBorder(
@@ -58,7 +65,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "light_system_missing",
-                initialValue: false,
+                initialValue: data.json["light_system_missing"] != null
+                    ? data.json["light_system_missing"]
+                    : false,
                 title: Text(
                   "4 pcs",
                   style: TextStyle(
@@ -92,7 +101,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "fans_faulty_1",
-                initialValue: false,
+                initialValue: data.json["fans_faulty_1"] != null
+                    ? data.json["fans_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -105,8 +116,11 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "fans_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["fans_remarks_1"] != null
+                    ? data.json["fans_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) Fans',
+                  labelText: 'Fans (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -120,7 +134,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "fans_missing_1",
-                initialValue: false,
+                initialValue: data.json["fans_missing_1"] != null
+                    ? data.json["fans_missing_1"]
+                    : false,
                 title: Text(
                   "4 pcs",
                   style: TextStyle(
@@ -154,7 +170,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "fans_faulty_2",
-                initialValue: false,
+                initialValue: data.json["fans_faulty_2"] != null
+                    ? data.json["fans_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -167,8 +185,11 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "fans_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["fans_remarks_2"] != null
+                    ? data.json["fans_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) Fans',
+                  labelText: 'Fans (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -182,7 +203,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "fans_missing_2",
-                initialValue: false,
+                initialValue: data.json["fans_missing_2"] != null
+                    ? data.json["fans_missing_2"]
+                    : false,
                 title: Text(
                   "4 pcs",
                   style: TextStyle(
@@ -217,7 +240,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "first_aid_box_faulty",
-                initialValue: false,
+                initialValue: data.json["first_aid_box_faulty"] != null
+                    ? data.json["first_aid_box_faulty"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -230,6 +255,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "first_aid_box_remarks",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["first_aid_box_remarks"] != null
+                    ? data.json["first_aid_box_remarks"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'First Aid Box',
                   border: OutlineInputBorder(
@@ -245,7 +273,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "first_aid_box_missing",
-                initialValue: false,
+                initialValue: data.json["first_aid_box_missing"] != null
+                    ? data.json["first_aid_box_missing"]
+                    : false,
                 title: Text(
                   "1 box",
                   style: TextStyle(
@@ -280,7 +310,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "fiber_patch_panel_faulty_1",
-                initialValue: false,
+                initialValue: data.json["fiber_patch_panel_faulty_1"] != null
+                    ? data.json["fiber_patch_panel_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -293,8 +325,11 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "fiber_patch_panel_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["fiber_patch_panel_remarks_1"] != null
+                    ? data.json["fiber_patch_panel_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) Fiber Patch Panel',
+                  labelText: 'FPP (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -308,7 +343,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "fiber_patch_panel_missing_1",
-                initialValue: false,
+                initialValue: data.json["fiber_patch_panel_missing_1"] != null
+                    ? data.json["fiber_patch_panel_missing_1"]
+                    : false,
                 title: Text(
                   "1 pcs",
                   style: TextStyle(
@@ -343,7 +380,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "fiber_patch_panel_faulty_2",
-                initialValue: false,
+                initialValue: data.json["fiber_patch_panel_faulty_2"] != null
+                    ? data.json["fiber_patch_panel_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -356,17 +395,31 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "fiber_patch_panel_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["fiber_patch_panel_remarks_2"] != null
+                    ? data.json["fiber_patch_panel_remarks_2"]
+                    : 'Indicate Value for FOCA1 S1/S2:\nFOCA2 S1/S2:',
                 decoration: InputDecoration(
-                  labelText: '(b.) Fiber Patch Panel',
+                  labelText: 'FPP (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                initialValue: 'Indicate Value for FOCA1 S1/S2:\nFOCA2 S1/S2:',
               ),
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Indicate Value for FOCA1 S1/S2:\nFOCA2 S1/S2:",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 64,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -381,7 +434,7 @@ Widget generateRightHandSideColumnRowMiscPart1(
               alignment: Alignment.centerLeft,
             ),
             Container(
-              child: Text("-No damage"),
+              child: Text("- No damage"),
               width: 175,
               height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -390,7 +443,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "FOCA_drum_faulty_1",
-                initialValue: false,
+                initialValue: data.json["FOCA_drum_faulty_1"] != null
+                    ? data.json["FOCA_drum_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -403,8 +458,11 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "FOCA_drum_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["FOCA_drum_remarks_1"] != null
+                    ? data.json["FOCA_drum_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) FOCA drum',
+                  labelText: 'FOCA drum (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -418,7 +476,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "FOCA_drum_missing_1",
-                initialValue: false,
+                initialValue: data.json["FOCA_drum_missing_1"] != null
+                    ? data.json["FOCA_drum_missing_1"]
+                    : false,
                 title: Text(
                   "1 / 2 pcs",
                   style: TextStyle(
@@ -453,7 +513,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "FOCA_drum_faulty_2",
-                initialValue: false,
+                initialValue: data.json["FOCA_drum_faulty_2"] != null
+                    ? data.json["FOCA_drum_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -466,18 +528,31 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "FOCA_drum_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["FOCA_drum_remarks_2"] != null
+                    ? data.json["FOCA_drum_remarks_2"]
+                    : 'Indicate drum values,\n Left S1/S2:\nLeft S3/S4:\nRight S1/S2:\nRight S3/S4:',
                 decoration: InputDecoration(
-                  labelText: '(b.) Foca Drum',
+                  labelText: 'Foca Drum (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                initialValue:
-                    'Indicate drum values,\n Left S1/S2:\nLeft S3/S4:\nRight S1/S2:\nRight S3/S4:',
               ),
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Indicate drum values,\n Left S1/S2:\nLeft S3/S4:\nRight S1/S2:\nRight S3/S4:",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 96,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -496,7 +571,10 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 children: <Widget>[
                   FormBuilderDateTimePicker(
                     name: "FOCA_drum_left_due_date",
-                    initialValue: DateTime.now(),
+                    initialValue: data.json["FOCA_drum_left_due_date"] != null
+                        ? DateFormat("yyyy-MM-dd hh:mm:ss")
+                            .parse(data.json["FOCA_drum_left_due_date"])
+                        : DateTime.now(),
                     decoration: InputDecoration(
                       labelText: 'Left Due Date:',
                       border: OutlineInputBorder(
@@ -507,7 +585,10 @@ Widget generateRightHandSideColumnRowMiscPart1(
                   UIHelper.verticalSpaceSmall(),
                   FormBuilderDateTimePicker(
                     name: "FOCA_drum_right_due_date",
-                    initialValue: DateTime.now(),
+                    initialValue: data.json["FOCA_drum_right_due_date"] != null
+                        ? DateFormat("yyyy-MM-dd hh:mm:ss")
+                            .parse(data.json["FOCA_drum_right_due_date"])
+                        : DateTime.now(),
                     decoration: InputDecoration(
                       labelText: 'Right Due Date:',
                       border: OutlineInputBorder(
@@ -525,7 +606,9 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "FOCA_drum_faulty_3",
-                initialValue: false,
+                initialValue: data.json["FOCA_drum_faulty_3"] != null
+                    ? data.json["FOCA_drum_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -538,17 +621,32 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "FOCA_drum_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["FOCA_drum_remarks_3"] != null
+                    ? data.json["FOCA_drum_remarks_3"]
+                    : 'Serial number,\n Left:\nRight:',
                 decoration: InputDecoration(
-                  labelText: '(c.) Foca Drum',
+                  labelText: 'Foca Drum (c)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                initialValue: 'Serial number,\n Left:\nRight:',
+                // initialValue: '',
               ),
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Serial number:\n Left:\nRight:",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 64,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -573,7 +671,10 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "gateway_patch_panel_1_faulty_1",
-                initialValue: false,
+                initialValue:
+                    data.json["gateway_patch_panel_1_faulty_1"] != null
+                        ? data.json["gateway_patch_panel_1_faulty_1"]
+                        : false,
                 title: Text(""),
               ),
               width: 50,
@@ -583,11 +684,15 @@ Widget generateRightHandSideColumnRowMiscPart1(
             ),
             Container(
               child: FormBuilderTextField(
-                name: "GatewayPatchPanel_1_remarks_1",
+                name: "gateway_patch_panel_1_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue:
+                    data.json["gateway_patch_panel_1_remarks_1"] != null
+                        ? data.json["gateway_patch_panel_1_remarks_1"]
+                        : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) Gateway Patch Panel 1',
+                  labelText: 'Gateway Patch Panel 1 (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -601,7 +706,10 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "gateway_patch_panel_1_missing_1",
-                initialValue: false,
+                initialValue:
+                    data.json["gateway_patch_panel_1_missing_1"] != null
+                        ? data.json["gateway_patch_panel_1_missing_1"]
+                        : false,
                 title: Text(
                   "1 pcs",
                   style: TextStyle(
@@ -636,7 +744,10 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "gateway_patch_panel_1_faulty_2",
-                initialValue: false,
+                initialValue:
+                    data.json["gateway_patch_panel_1_faulty_2"] != null
+                        ? data.json["gateway_patch_panel_1_faulty_2"]
+                        : false,
                 title: Text(""),
               ),
               width: 50,
@@ -649,8 +760,12 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "gateway_patch_panel_1_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue:
+                    data.json["gateway_patch_panel_1_remarks_2"] != null
+                        ? data.json["gateway_patch_panel_1_remarks_2"]
+                        : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) Gateway Patch Panel 1',
+                  labelText: 'Gateway Patch Panel 1 (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -683,7 +798,10 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "gateway_patch_panel_2_faulty_1",
-                initialValue: false,
+                initialValue:
+                    data.json["gateway_patch_panel_2_faulty_1"] != null
+                        ? data.json["gateway_patch_panel_2_faulty_1"]
+                        : false,
                 title: Text(""),
               ),
               width: 50,
@@ -696,8 +814,12 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "gateway_patch_panel_2_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue:
+                    data.json["gateway_patch_panel_2_remarks_1"] != null
+                        ? data.json["gateway_patch_panel_2_remarks_1"]
+                        : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) Gateway Patch Panel 2',
+                  labelText: 'Gateway Patch Panel 2 (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -711,7 +833,10 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "gateway_patch_panel_2_missing_1",
-                initialValue: false,
+                initialValue:
+                    data.json["gateway_patch_panel_2_missing_1"] != null
+                        ? data.json["gateway_patch_panel_2_missing_1"]
+                        : false,
                 title: Text(
                   "1 pcs",
                   style: TextStyle(
@@ -746,7 +871,10 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "gateway_patch_panel_2_faulty_2",
-                initialValue: false,
+                initialValue:
+                    data.json["gateway_patch_panel_2_faulty_2"] != null
+                        ? data.json["gateway_patch_panel_2_faulty_2"]
+                        : false,
                 title: Text(""),
               ),
               width: 50,
@@ -759,8 +887,12 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "gateway_patch_panel_2_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue:
+                    data.json["gateway_patch_panel_2_remarks_2"] != null
+                        ? data.json["gateway_patch_panel_2_remarks_2"]
+                        : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) Gateway Patch Panel 2',
+                  labelText: 'Gateway Patch Panel 2 (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -797,7 +929,10 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "RF_jumper_cable_5_BNC_N_faulty_1",
-                initialValue: false,
+                initialValue:
+                    data.json["RF_jumper_cable_5_BNC_N_faulty_1"] != null
+                        ? data.json["RF_jumper_cable_5_BNC_N_faulty_1"]
+                        : false,
                 title: Text(""),
               ),
               width: 50,
@@ -810,8 +945,12 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "RF_jumper_cable_5_BNC_N_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue:
+                    data.json["RF_jumper_cable_5_BNC_N_remarks_1"] != null
+                        ? data.json["RF_jumper_cable_5_BNC_N_remarks_1"]
+                        : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) 0.5 RF',
+                  labelText: '0.5 RF (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -825,7 +964,10 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "RF_jumper_cable_5_BNC_N_missing_1",
-                initialValue: false,
+                initialValue:
+                    data.json["RF_jumper_cable_5_BNC_N_missing_1"] != null
+                        ? data.json["RF_jumper_cable_5_BNC_N_missing_1"]
+                        : false,
                 title: Text(
                   "2 pcs",
                   style: TextStyle(
@@ -864,7 +1006,10 @@ Widget generateRightHandSideColumnRowMiscPart1(
             Container(
               child: FormBuilderCheckbox(
                 name: "RF_jumper_cable_5_BNC_N_faulty_2",
-                initialValue: false,
+                initialValue:
+                    data.json["RF_jumper_cable_5_BNC_N_faulty_2"] != null
+                        ? data.json["RF_jumper_cable_5_BNC_N_faulty_2"]
+                        : false,
                 title: Text(""),
               ),
               width: 50,
@@ -877,8 +1022,12 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 name: "RF_jumper_cable_5_BNC_N_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue:
+                    data.json["RF_jumper_cable_5_BNC_N_remarks_2"] != null
+                        ? data.json["RF_jumper_cable_5_BNC_N_remarks_2"]
+                        : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) 0.5 RF',
+                  labelText: '0.5 RF (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),

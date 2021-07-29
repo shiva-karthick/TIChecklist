@@ -18,22 +18,22 @@ class _FMW1personnelState extends State<FMW1personnel> {
     return Container(
       child: FormBuilderTextField(
         name: 'fmw1Personnel',
-        initialValue: widget.fmw1Personnel ?? "",
+        initialValue: widget.fmw1Personnel != null ? widget.fmw1Personnel : '',
         keyboardType: TextInputType.multiline,
         maxLines: null,
+        validator: FormBuilderValidators.compose(
+          [
+            FormBuilderValidators.required(context),
+          ],
+        ),
         decoration: InputDecoration(
           icon: Icon(Icons.supervised_user_circle),
           hintText: 'Jun Jie, Gouthaman...',
           labelText: 'Enter names',
+          filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-        ),
-        validator: FormBuilderValidators.compose(
-          [
-            FormBuilderValidators.required(context),
-            FormBuilderValidators.max(context, 70),
-          ],
         ),
       ),
     );

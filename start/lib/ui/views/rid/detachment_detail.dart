@@ -12,9 +12,15 @@ class DetachmentDetail extends StatelessWidget {
         UIHelper.verticalSpaceMedium(),
         FormBuilderTextField(
           name: 'vehicle_number',
+          validator: FormBuilderValidators.compose(
+            [
+              FormBuilderValidators.required(context),
+            ],
+          ),
           decoration: InputDecoration(
             icon: Icon(Icons.radio_rounded),
             hintText: 'MID22540',
+            filled: true,
             labelText: 'Vehicle Number',
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -24,16 +30,25 @@ class DetachmentDetail extends StatelessWidget {
         ),
         FormBuilderTextField(
           name: 'node_number',
+          validator: FormBuilderValidators.compose(
+            [
+              FormBuilderValidators.required(context),
+              FormBuilderValidators.maxLength(context, 35),
+            ],
+          ),
           decoration: InputDecoration(
             icon: Icon(Icons.confirmation_number),
+            errorMaxLines: 2,
             hintText: 'Node 36 RID 1',
-            labelText: 'Node Number and detachment name',
+            filled: true,
+            labelText: 'Node Number and Detachment Name',
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
             ),
           ),
           maxLength: 35,
         ),
+        UIHelper.verticalSpaceSmall(),
         FormBuilderDateTimePicker(
           name: 'start_date_time',
           initialValue: DateTime.now(),
@@ -72,9 +87,15 @@ class DetachmentDetail extends StatelessWidget {
         UIHelper.verticalSpaceMedium(),
         FormBuilderTextField(
           name: 'location',
+          validator: FormBuilderValidators.compose(
+            [
+              FormBuilderValidators.required(context),
+            ],
+          ),
           decoration: InputDecoration(
             icon: Icon(Icons.location_city),
             hintText: 'MHC Level 3',
+            filled: true,
             labelText: 'Location',
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),

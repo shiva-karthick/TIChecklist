@@ -18,6 +18,11 @@ class DetachmentDetail extends StatelessWidget {
           initialValue: post.json["vehicle_number"] != null
               ? post.json["vehicle_number"]
               : "",
+          validator: FormBuilderValidators.compose(
+            [
+              FormBuilderValidators.required(context),
+            ],
+          ),
           decoration: InputDecoration(
             icon: Icon(Icons.radio_rounded),
             hintText: 'MID22540',
@@ -30,6 +35,11 @@ class DetachmentDetail extends StatelessWidget {
         ),
         FormBuilderTextField(
           name: 'node_number',
+          validator: FormBuilderValidators.compose(
+            [
+              FormBuilderValidators.required(context),
+            ],
+          ),
           initialValue:
               post.json["node_number"] != null ? post.json["node_number"] : "",
           decoration: InputDecoration(
@@ -88,6 +98,11 @@ class DetachmentDetail extends StatelessWidget {
         UIHelper.verticalSpaceMedium(),
         FormBuilderTextField(
           name: 'location',
+          validator: FormBuilderValidators.compose(
+            [
+              FormBuilderValidators.required(context),
+            ],
+          ),
           initialValue:
               post.json["location"] != null ? post.json["location"] : '',
           decoration: InputDecoration(

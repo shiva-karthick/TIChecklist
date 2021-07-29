@@ -50,7 +50,7 @@ Widget generateRightHandSideColumnRowExterior(
                     ? data.json["FOSEP_remarks"]
                     : '',
                 decoration: InputDecoration(
-                  labelText: 'FO Signal Entrance PANEL',
+                  labelText: 'FO SEP',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -120,7 +120,7 @@ Widget generateRightHandSideColumnRowExterior(
                     ? data.json["MRD_remarks_1"]
                     : '',
                 decoration: InputDecoration(
-                  labelText: 'Movement Reduction Device (a)',
+                  labelText: 'MRD (a.)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -187,9 +187,9 @@ Widget generateRightHandSideColumnRowExterior(
                 maxLines: null,
                 initialValue: data.json["MRD_remarks_2"] != null
                     ? data.json["MRD_remarks_2"]
-                    : false,
+                    : '',
                 decoration: InputDecoration(
-                  labelText: 'Movement Reduction Device (b)',
+                  labelText: 'MRD (b.)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -378,7 +378,7 @@ Widget generateRightHandSideColumnRowExterior(
                     ? data.json["mast_12m_remarks_1"]
                     : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) 12m Mast',
+                  labelText: '12m Mast (a.)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -477,7 +477,7 @@ Widget generateRightHandSideColumnRowExterior(
                     ? data.json["mast_12m_remarks_2"]
                     : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) 12m Mast',
+                  labelText: '12m Mast (b.)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:provider_architecture/core/models/post.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 
-Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
+Widget generateRightHandSideColumnRowVHF(
+    BuildContext context, int index, Post data) {
   double remarksWidth = 172;
   double remarksHeight = 136;
 
@@ -26,6 +28,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: 'vrc_946_1_serial_number',
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946_1_serial_number"] != null
+                        ? data.json["vrc_946_1_serial_number"]
+                        : "",
                     decoration: InputDecoration(
                       hintText: 'A123456BC',
                       labelText: 'Serial No:',
@@ -46,7 +51,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_1_faulty_1",
-                initialValue: false,
+                initialValue: data.json["vrc_946_1_faulty_1"] != null
+                    ? data.json["vrc_946_1_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -59,6 +66,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_1_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_1_remarks_1"] != null
+                    ? data.json["vrc_946_1_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946 1 (a)',
                   border: OutlineInputBorder(
@@ -74,7 +84,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_1_missing",
-                initialValue: false,
+                initialValue: data.json["vrc_946_1_missing"] != null
+                    ? data.json["vrc_946_1_missing"]
+                    : false,
                 title: Text(
                   "1 set",
                   style: TextStyle(
@@ -109,7 +121,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_1_faulty_2",
-                initialValue: false,
+                initialValue: data.json["vrc_946_1_faulty_2"] != null
+                    ? data.json["vrc_946_1_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -122,6 +136,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_1_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_1_remarks_2"] != null
+                    ? data.json["vrc_946_1_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946 1 (b)',
                   border: OutlineInputBorder(
@@ -160,7 +177,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_1_faulty_3",
-                initialValue: false,
+                initialValue: data.json["vrc_946_1_faulty_3"] != null
+                    ? data.json["vrc_946_1_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -173,6 +192,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_1_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_1_remarks_3"] != null
+                    ? data.json["vrc_946_1_remarks_3"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946 1 (c)',
                   border: OutlineInputBorder(
@@ -211,7 +233,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_1_faulty_4",
-                initialValue: false,
+                initialValue: data.json["vrc_946_1_faulty_4"] != null
+                    ? data.json["vrc_946_1_faulty_4"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -224,6 +248,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_1_remarks_4",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_1_remarks_4"] != null
+                    ? data.json["vrc_946_1_remarks_4"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC 946 1 (d)',
                   border: OutlineInputBorder(
@@ -257,6 +284,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: "vrc_946_1_output_power",
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946_1_output_power"] != null
+                        ? data.json["vrc_946_1_output_power"]
+                        : '',
                     decoration: InputDecoration(
                       labelText: 'Transmission Output Power',
                       border: OutlineInputBorder(
@@ -274,7 +304,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_1_faulty_5",
-                initialValue: false,
+                initialValue: data.json["vrc_946_1_faulty_5"] != null
+                    ? data.json["vrc_946_1_faulty_5"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -287,6 +319,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_1_remarks_5",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_1_remarks_5"] != null
+                    ? data.json["vrc_946_1_remarks_5"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC 946 1 (e)',
                   border: OutlineInputBorder(
@@ -297,6 +332,18 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Get the value range from SM TCS, for us to determine P/F",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 64,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -318,6 +365,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: 'vrc_946_2_serial_number',
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946_2_serial_number"] != null
+                        ? data.json["vrc_946_2_serial_number"]
+                        : '',
                     decoration: InputDecoration(
                       hintText: 'A123456BC',
                       labelText: 'Serial No:',
@@ -338,7 +388,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_2_faulty_1",
-                initialValue: false,
+                initialValue: data.json["vrc_946_2_faulty_1"] != null
+                    ? data.json["vrc_946_2_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -351,6 +403,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_2_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_2_remarks_1"] != null
+                    ? data.json["vrc_946_2_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946 2 (a)',
                   border: OutlineInputBorder(
@@ -366,7 +421,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_2_missing",
-                initialValue: false,
+                initialValue: data.json["vrc_946_2_missing"] != null
+                    ? data.json["vrc_946_2_missing"]
+                    : false,
                 title: Text(
                   "1 set",
                   style: TextStyle(
@@ -401,7 +458,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_2_faulty_2",
-                initialValue: false,
+                initialValue: data.json["vrc_946_2_faulty_2"] != null
+                    ? data.json["vrc_946_2_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -414,6 +473,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_2_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_2_remarks_2"] != null
+                    ? data.json["vrc_946_2_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946 2 (b)',
                   border: OutlineInputBorder(
@@ -452,7 +514,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_2_faulty_3",
-                initialValue: false,
+                initialValue: data.json["vrc_946_2_faulty_3"] != null
+                    ? data.json["vrc_946_2_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -465,6 +529,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_2_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_2_remarks_3"] != null
+                    ? data.json["vrc_946_2_remarks_3"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946 2 (c)',
                   border: OutlineInputBorder(
@@ -503,7 +570,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_2_faulty_4",
-                initialValue: false,
+                initialValue: data.json["vrc_946_2_faulty_4"] != null
+                    ? data.json["vrc_946_2_faulty_4"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -516,6 +585,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_2_remarks_4",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_2_remarks_4"] != null
+                    ? data.json["vrc_946_2_remarks_4"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC 946 2 (d)',
                   border: OutlineInputBorder(
@@ -549,6 +621,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: "vrc_946_2_output_power",
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946_2_output_power"] != null
+                        ? data.json["vrc_946_2_output_power"]
+                        : '',
                     decoration: InputDecoration(
                       labelText: 'transmission Output Power',
                       border: OutlineInputBorder(
@@ -566,7 +641,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_2_faulty_5",
-                initialValue: false,
+                initialValue: data.json["vrc_946_2_faulty_5"] != null
+                    ? data.json["vrc_946_2_faulty_5"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -579,6 +656,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_2_remarks_5",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_2_remarks_5"] != null
+                    ? data.json["vrc_946_2_remarks_5"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC 946 2 (e)',
                   border: OutlineInputBorder(
@@ -589,6 +669,18 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Get the value range from SM TCS, for us to determine P/F",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 64,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -610,6 +702,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: 'vrc_946_3_serial_number',
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946_3_serial_number"] != null
+                        ? data.json["vrc_946_3_serial_number"]
+                        : '',
                     decoration: InputDecoration(
                       hintText: 'A123456BC',
                       labelText: 'Serial No:',
@@ -630,7 +725,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_3_faulty_1",
-                initialValue: false,
+                initialValue: data.json["vrc_946_3_faulty_1"] != null
+                    ? data.json["vrc_946_3_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -643,6 +740,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_3_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_3_remarks_1"] != null
+                    ? data.json["vrc_946_3_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946 3 (a)',
                   border: OutlineInputBorder(
@@ -658,7 +758,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_3_missing",
-                initialValue: false,
+                initialValue: data.json["vrc_946_3_missing"] != null
+                    ? data.json["vrc_946_3_missing"]
+                    : false,
                 title: Text(
                   "1 set",
                   style: TextStyle(
@@ -693,7 +795,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_3_faulty_2",
-                initialValue: false,
+                initialValue: data.json["vrc_946_3_faulty_2"] != null
+                    ? data.json["vrc_946_3_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -706,6 +810,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_3_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_3_remarks_2"] != null
+                    ? data.json["vrc_946_3_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946 3 (b)',
                   border: OutlineInputBorder(
@@ -744,7 +851,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_3_faulty_3",
-                initialValue: false,
+                initialValue: data.json["vrc_946_3_faulty_3"] != null
+                    ? data.json["vrc_946_3_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -757,6 +866,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_3_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_3_remarks_3"] != null
+                    ? data.json["vrc_946_3_remarks_3"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946 3 (c)',
                   border: OutlineInputBorder(
@@ -795,7 +907,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_3_faulty_4",
-                initialValue: false,
+                initialValue: data.json["vrc_946_3_faulty_4"] != null
+                    ? data.json["vrc_946_3_faulty_4"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -808,6 +922,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_3_remarks_4",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_3_remarks_4"] != null
+                    ? data.json["vrc_946_3_remarks_4"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC 946 3 (d)',
                   border: OutlineInputBorder(
@@ -841,6 +958,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: "vrc_946_3_output_power",
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946_3_output_power"] != null
+                        ? data.json["vrc_946_3_output_power"]
+                        : '',
                     decoration: InputDecoration(
                       labelText: 'Transmission Output Power',
                       border: OutlineInputBorder(
@@ -858,7 +978,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946_3_faulty_5",
-                initialValue: false,
+                initialValue: data.json["vrc_946_3_faulty_5"] != null
+                    ? data.json["vrc_946_3_faulty_5"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -871,6 +993,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946_3_remarks_5",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946_3_remarks_5"] != null
+                    ? data.json["vrc_946_3_remarks_5"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC 946 3 (e)',
                   border: OutlineInputBorder(
@@ -881,6 +1006,18 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Get the value range from SM TCS, for us to determine P/F",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 64,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -902,6 +1039,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: 'vrc_946A_1_serial_number',
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946A_1_serial_number"] != null
+                        ? data.json["vrc_946A_1_serial_number"]
+                        : '',
                     decoration: InputDecoration(
                       hintText: 'A123456BC',
                       labelText: 'Serial No:',
@@ -922,7 +1062,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_1_faulty_1",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_1_faulty_1"] != null
+                    ? data.json["vrc_946A_1_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -935,6 +1077,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_1_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_1_remarks_1"] != null
+                    ? data.json["vrc_946A_1_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946A 1 (a)',
                   border: OutlineInputBorder(
@@ -950,7 +1095,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_1_missing",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_1_missing"] != null
+                    ? data.json["vrc_946A_1_missing"]
+                    : false,
                 title: Text(
                   "1 set",
                   style: TextStyle(
@@ -985,7 +1132,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_1_faulty_2",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_1_faulty_2"] != null
+                    ? data.json["vrc_946A_1_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -998,6 +1147,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_1_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_1_remarks_2"] != null
+                    ? data.json["vrc_946A_1_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946A 1 (b)',
                   border: OutlineInputBorder(
@@ -1036,7 +1188,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_1_faulty_3",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_1_faulty_3"] != null
+                    ? data.json["vrc_946A_1_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1049,6 +1203,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_1_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_1_remarks_3"] != null
+                    ? data.json["vrc_946A_1_remarks_3"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946A 1 (c)',
                   border: OutlineInputBorder(
@@ -1087,7 +1244,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_1_faulty_4",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_1_faulty_4"] != null
+                    ? data.json["vrc_946A_1_faulty_4"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1100,6 +1259,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_1_remarks_4",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_1_remarks_4"] != null
+                    ? data.json["vrc_946A_1_remarks_4"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC 946A 1 (d)',
                   border: OutlineInputBorder(
@@ -1133,6 +1295,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: "vrc_946A_1_output_power",
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946A_1_output_power"] != null
+                        ? data.json["vrc_946A_1_output_power"]
+                        : '',
                     decoration: InputDecoration(
                       labelText: 'Transmission Output Power',
                       border: OutlineInputBorder(
@@ -1150,7 +1315,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_1_faulty_5",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_1_faulty_5"] != null
+                    ? data.json["vrc_946A_1_faulty_5"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1163,8 +1330,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_1_remarks_5",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
-                initialValue:
-                    'Get the value from SM TCS, for us to determine PF',
+                initialValue: data.json["vrc_946A_1_remarks_5"] != null
+                    ? data.json["vrc_946A_1_remarks_5"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC 946A 1 (e)',
                   border: OutlineInputBorder(
@@ -1175,6 +1343,18 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Get the value range from SM TCS, for us to determine P/F",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 64,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -1196,6 +1376,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: 'vrc_946A_2_serial_number',
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946A_2_serial_number"] != null
+                        ? data.json["vrc_946A_2_serial_number"]
+                        : '',
                     decoration: InputDecoration(
                       hintText: 'A123456BC',
                       labelText: 'Serial No:',
@@ -1216,7 +1399,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_2_faulty_1",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_2_faulty_1"] != null
+                    ? data.json["vrc_946A_2_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1229,6 +1414,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_2_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_2_remarks_1"] != null
+                    ? data.json["vrc_946A_2_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946A 2 (a)',
                   border: OutlineInputBorder(
@@ -1244,7 +1432,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_2_missing",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_2_missing"] != null
+                    ? data.json["vrc_946A_2_missing"]
+                    : false,
                 title: Text(
                   "1 set",
                   style: TextStyle(
@@ -1279,7 +1469,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_2_faulty_2",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_2_faulty_2"] != null
+                    ? data.json["vrc_946A_2_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1292,6 +1484,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_2_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_2_remarks_2"] != null
+                    ? data.json["vrc_946A_2_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946A 2 (b)',
                   border: OutlineInputBorder(
@@ -1330,7 +1525,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_2_faulty_3",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_2_faulty_3"] != null
+                    ? data.json["vrc_946A_2_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1343,6 +1540,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_2_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_2_remarks_3"] != null
+                    ? data.json["vrc_946A_2_remarks_3"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946A 2 (c)',
                   border: OutlineInputBorder(
@@ -1381,7 +1581,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_2_faulty_4",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_2_faulty_4"] != null
+                    ? data.json["vrc_946A_2_faulty_4"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1394,6 +1596,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_2_remarks_4",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_2_remarks_4"] != null
+                    ? data.json["vrc_946A_2_remarks_4"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC 946A 2 (d)',
                   border: OutlineInputBorder(
@@ -1427,6 +1632,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: "vrc_946A_2_output_power",
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946A_2_output_power"] != null
+                        ? data.json["vrc_946A_2_output_power"]
+                        : '',
                     decoration: InputDecoration(
                       labelText: 'Transmission Output Power',
                       border: OutlineInputBorder(
@@ -1444,7 +1652,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_2_faulty_5",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_2_faulty_5"] != null
+                    ? data.json["vrc_946A_2_faulty_5"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1457,8 +1667,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_2_remarks_5",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
-                initialValue:
-                    'Get the value range from SM TCS, for us to determine PF',
+                initialValue: data.json["vrc_946A_2_remarks_5"] != null
+                    ? data.json["vrc_946A_2_remarks_5"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC 946A 2 (e)',
                   border: OutlineInputBorder(
@@ -1469,6 +1680,18 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Get the value range from SM TCS, for us to determine P/F",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 64,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -1490,6 +1713,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: 'vrc_946A_3_serial_number',
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946A_3_serial_number"] != null
+                        ? data.json["vrc_946A_3_serial_number"]
+                        : '',
                     decoration: InputDecoration(
                       hintText: 'A123456BC',
                       labelText: 'Serial No:',
@@ -1510,7 +1736,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_3_faulty_1",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_3_faulty_1"] != null
+                    ? data.json["vrc_946A_3_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1523,6 +1751,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_3_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_3_remarks_1"] != null
+                    ? data.json["vrc_946A_3_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946A 3 (a)',
                   border: OutlineInputBorder(
@@ -1538,7 +1769,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_3_missing",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_3_missing"] != null
+                    ? data.json["vrc_946A_3_missing"]
+                    : false,
                 title: Text(
                   "1 set",
                   style: TextStyle(
@@ -1573,7 +1806,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_3_faulty_2",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_3_faulty_2"] != null
+                    ? data.json["vrc_946A_3_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1586,6 +1821,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_3_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_3_remarks_2"] != null
+                    ? data.json["vrc_946A_3_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946A 3 (b)',
                   border: OutlineInputBorder(
@@ -1624,7 +1862,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_3_faulty_3",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_3_faulty_3"] != null
+                    ? data.json["vrc_946A_3_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1637,6 +1877,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_3_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_3_remarks_3"] != null
+                    ? data.json["vrc_946A_3_remarks_3"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC946A 3 (c)',
                   border: OutlineInputBorder(
@@ -1675,7 +1918,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_3_faulty_4",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_3_faulty_4"] != null
+                    ? data.json["vrc_946A_3_faulty_4"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1688,6 +1933,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_3_remarks_4",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["vrc_946A_3_remarks_4"] != null
+                    ? data.json["vrc_946A_3_remarks_4"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'VRC 946A 3 (d)',
                   border: OutlineInputBorder(
@@ -1721,6 +1969,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                     name: "vrc_946A_3_output_power",
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue: data.json["vrc_946A_3_output_power"] != null
+                        ? data.json["vrc_946A_3_output_power"]
+                        : '',
                     decoration: InputDecoration(
                       labelText: 'Transmission Output Power',
                       border: OutlineInputBorder(
@@ -1738,7 +1989,9 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "vrc_946A_3_faulty_5",
-                initialValue: false,
+                initialValue: data.json["vrc_946A_3_faulty_5"] != null
+                    ? data.json["vrc_946A_3_faulty_5"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1751,8 +2004,11 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
                 name: "vrc_946A_3_remarks_5",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
-                initialValue:
-                    'Get the value range from SM TCS, for us to determine PF',
+                initialValue: data.json["vrc_946A_3_remarks_5"] != null
+                    ? data.json["vrc_946A_3_remarks_5"]
+                    : '',
+                // initialValue:
+                // 'Get the value range from SM TCS, for us to determine PF',
                 decoration: InputDecoration(
                   labelText: 'VRC 946A 3 (e)',
                   border: OutlineInputBorder(
@@ -1763,6 +2019,18 @@ Widget generateRightHandSideColumnRowVHF(BuildContext context, int index) {
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Get the value range from SM TCS, for us to determine P/F",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 64,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],

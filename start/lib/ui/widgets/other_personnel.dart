@@ -15,7 +15,8 @@ class _OtherPersonnelState extends State<OtherPersonnel> {
     return Container(
       child: FormBuilderTextField(
         name: 'otherPersonnel',
-        initialValue: widget.otherPersonnel ?? "",
+        initialValue:
+            widget.otherPersonnel != null ? widget.otherPersonnel : '',
         keyboardType: TextInputType.multiline,
         maxLines: null,
         decoration: InputDecoration(
@@ -25,12 +26,6 @@ class _OtherPersonnelState extends State<OtherPersonnel> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-        ),
-        validator: FormBuilderValidators.compose(
-          [
-            FormBuilderValidators.required(context),
-            FormBuilderValidators.max(context, 70),
-          ],
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:provider_architecture/ui/views/post_view.dart';
 import 'package:provider_architecture/ui/views/rid_view.dart';
 import 'package:provider_architecture/ui/widgets/Key/formKey.dart';
 import 'package:unicorndial/unicorndial.dart';

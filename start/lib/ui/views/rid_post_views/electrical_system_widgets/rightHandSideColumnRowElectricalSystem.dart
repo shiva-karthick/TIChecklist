@@ -214,7 +214,7 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             ),
             Container(
               child: Text(
-                  "-ON PDB, switch OFF both Gen and switch ON battery only. Check for ≥ 24V"),
+                  "- ON PDB, switch OFF both Gen and switch ON battery only. Check for ≥ 24V"),
               width: 175,
               height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -252,6 +252,18 @@ Widget generateRightHandSideColumnRowElectricalSystem(
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Indicate battery voltage in the remarks section",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -323,7 +335,7 @@ Widget generateRightHandSideColumnRowElectricalSystem(
           children: <Widget>[
             Container(
               child: Text(
-                  "a. Check for physical condition, loose bolts, nuts&wiring connection"),
+                  "a. Check for physical condition, loose bolts, nuts & wiring connection"),
               width: 125,
               height: 85,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -332,15 +344,19 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: Column(
                 children: <Widget>[
-                  Text("-No damage"),
+                  Text("- No damage                      "),
                   UIHelper.verticalSpaceSmall(),
                   FormBuilderTextField(
                     name: "left_generator_serial_number",
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue:
+                        data.json["left_generator_serial_number"] != null
+                            ? data.json["left_generator_serial_number"]
+                            : '',
                     decoration: InputDecoration(
-                      labelText: 'Right S/N : ',
-                      hintText: 'S/N: ',
+                      labelText: 'Left S/N : ',
+                      hintText: 'Serial Number ',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -351,9 +367,13 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                     name: "right_generator_serial_number",
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    initialValue:
+                        data.json["right_generator_serial_number"] != null
+                            ? data.json["right_generator_serial_number"]
+                            : '',
                     decoration: InputDecoration(
-                      labelText: 'Left S/N : ',
-                      hintText: 'S/N: ',
+                      labelText: 'Right S/N : ',
+                      hintText: 'Serial Number ',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -369,7 +389,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_faulty_1",
-                initialValue: false,
+                initialValue: data.json["generator_faulty_1"] != null
+                    ? data.json["generator_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -382,8 +404,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "generator_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["generator_remarks_1"] != null
+                    ? data.json["generator_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) Generator',
+                  labelText: 'Generator (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -397,7 +422,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_missing_1",
-                initialValue: false,
+                initialValue: data.json["generator_missing_1"] != null
+                    ? data.json["generator_missing_1"]
+                    : false,
                 title: Text(
                   "2 pcs",
                   style: TextStyle(
@@ -431,7 +458,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_faulty_2",
-                initialValue: false,
+                initialValue: data.json["generator_faulty_2"] != null
+                    ? data.json["generator_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -444,8 +473,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "generator_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["generator_remarks_2"] != null
+                    ? data.json["generator_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) Generator',
+                  labelText: 'Generator (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -469,7 +501,7 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             ),
             Container(
               child: Text(
-                  "-Ensure fuel level indicator is functional & ensure there is enough fuel"),
+                  "- Ensure fuel level indicator is functional & ensure there is enough fuel"),
               width: 175,
               height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -478,7 +510,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_faulty_3",
-                initialValue: false,
+                initialValue: data.json["generator_faulty_3"] != null
+                    ? data.json["generator_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -491,8 +525,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "generator_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["generator_remarks_3"] != null
+                    ? data.json["generator_remarks_3"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(c.) Generator',
+                  labelText: 'Generator (c)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -515,7 +552,7 @@ Widget generateRightHandSideColumnRowElectricalSystem(
               alignment: Alignment.centerLeft,
             ),
             Container(
-              child: Text("-Ensure filter is not black in colour"),
+              child: Text("- Ensure filter is not black in colour"),
               width: 175,
               height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -524,7 +561,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_faulty_4",
-                initialValue: false,
+                initialValue: data.json["generator_faulty_4"] != null
+                    ? data.json["generator_faulty_4"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -537,8 +576,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "generator_remarks_4",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["generator_remarks_4"] != null
+                    ? data.json["generator_remarks_4"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(d.) Generator',
+                  labelText: 'Generator (d)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -561,7 +603,7 @@ Widget generateRightHandSideColumnRowElectricalSystem(
               alignment: Alignment.centerLeft,
             ),
             Container(
-              child: Text("-Ensure it is in ON position"),
+              child: Text("- Ensure it is in ON position"),
               width: 175,
               height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -570,7 +612,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_faulty_5",
-                initialValue: false,
+                initialValue: data.json["generator_faulty_5"] != null
+                    ? data.json["generator_faulty_5"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -583,8 +627,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "generator_remarks_5",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["generator_remarks_5"] != null
+                    ? data.json["generator_remarks_5"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(e.) Generator',
+                  labelText: 'Generator (e)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -621,7 +668,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_faulty_6",
-                initialValue: false,
+                initialValue: data.json["generator_faulty_6"] != null
+                    ? data.json["generator_faulty_6"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -634,9 +683,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "generator_remarks_6",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["generator_remarks_6"] != null
+                    ? data.json["generator_remarks_6"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(f.) Generator',
-                  hintText: 'inform any of the regulars if water/air was found',
+                  labelText: 'Generator (f)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -645,6 +696,18 @@ Widget generateRightHandSideColumnRowElectricalSystem(
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Inform any of the regulars if water/air was found",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 64,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -660,7 +723,7 @@ Widget generateRightHandSideColumnRowElectricalSystem(
               alignment: Alignment.centerLeft,
             ),
             Container(
-              child: Text("-Between max and min on dipstick"),
+              child: Text("- Between max and min on dipstick"),
               width: 175,
               height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -669,7 +732,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_faulty_7",
-                initialValue: false,
+                initialValue: data.json["generator_faulty_7"] != null
+                    ? data.json["generator_faulty_7"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -682,8 +747,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "generator_remarks_7",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["generator_remarks_7"] != null
+                    ? data.json["generator_remarks_7"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(g.) Generator',
+                  labelText: 'Generator (g)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -715,7 +783,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_faulty_8",
-                initialValue: false,
+                initialValue: data.json["generator_faulty_8"] != null
+                    ? data.json["generator_faulty_8"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -728,9 +798,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "generator_remarks_8",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["generator_remarks_8"] != null
+                    ? data.json["generator_remarks_8"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(h.) Generator',
-                  hintText: 'inform any of the regulars if water/air was found',
+                  labelText: 'Generator (h)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -757,9 +829,12 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 children: [
                   FormBuilderDateTimePicker(
                     name: "left_generator_due_date",
-                    initialValue: DateTime.now(),
+                    initialValue: data.json["left_generator_due_date"] != null
+                        ? DateFormat("yyyy-MM-dd hh:mm:ss")
+                            .parse(data.json["left_generator_due_date"])
+                        : DateTime.now(),
                     decoration: InputDecoration(
-                      labelText: 'Left Generator Due Date:',
+                      labelText: 'Left Generator Due Date',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -768,9 +843,12 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                   UIHelper.verticalSpaceSmall(),
                   FormBuilderDateTimePicker(
                     name: "right_generator_due_date",
-                    initialValue: DateTime.now(),
+                    initialValue: data.json["right_generator_due_date"] != null
+                        ? DateFormat("yyyy-MM-dd hh:mm:ss")
+                            .parse(data.json["right_generator_due_date"])
+                        : DateTime.now(),
                     decoration: InputDecoration(
-                      labelText: 'Right Generator Due Date:',
+                      labelText: 'Right Generator Due Date',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -786,7 +864,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_faulty_9",
-                initialValue: false,
+                initialValue: data.json["generator_faulty_9"] != null
+                    ? data.json["generator_faulty_9"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -799,9 +879,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "generator_remarks_9",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
-                initialValue: 'Not to be used if due',
+                initialValue: data.json["generator_remarks_9"] != null
+                    ? data.json["generator_remarks_9"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(i.) Generator',
+                  labelText: 'Generator (i)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -810,6 +892,18 @@ Widget generateRightHandSideColumnRowElectricalSystem(
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Not to be used if due",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 52,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -833,7 +927,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_faulty_10",
-                initialValue: false,
+                initialValue: data.json["generator_faulty_10"] != null
+                    ? data.json["generator_faulty_10"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -846,8 +942,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "generator_remarks_10",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["generator_remarks_10"] != null
+                    ? data.json["generator_remarks_10"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(j.) Generator',
+                  labelText: 'Generator (j)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -879,7 +978,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "generator_faulty_11",
-                initialValue: false,
+                initialValue: data.json["generator_faulty_11"] != null
+                    ? data.json["generator_faulty_11"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -892,8 +993,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "generator_remarks_11",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["generator_remarks_11"] != null
+                    ? data.json["generator_remarks_11"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(k.) Generator',
+                  labelText: 'Generator (k)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -929,8 +1033,10 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "generator_faulty_10",
-                initialValue: false,
+                name: "generator_faulty_12",
+                initialValue: data.json["generator_faulty_12"] != null
+                    ? data.json["generator_faulty_12"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -940,20 +1046,34 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             ),
             Container(
               child: FormBuilderTextField(
-                name: "generator_remarks_10",
+                name: "generator_remarks_12",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["generator_remarks_12"] != null
+                    ? data.json["generator_remarks_12"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(l.) Generator',
+                  labelText: 'Generator (l)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                initialValue: "Indicate Gen voltage,\nLeft :\nRight : ",
               ),
               width: remarksWidth,
               height: remarksHeight,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              alignment: Alignment.centerLeft,
+            ),
+            Container(
+              child: Text(
+                "Indicate Generator voltage,\nLeft :\nRight : ",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              width: 175,
+              height: 80,
+              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
           ],
@@ -982,7 +1102,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "power_cable_faulty",
-                initialValue: false,
+                initialValue: data.json["power_cable_faulty"] != null
+                    ? data.json["power_cable_faulty"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -995,6 +1117,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "power_cable_remarks",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["power_cable_remarks"] != null
+                    ? data.json["power_cable_remarks"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'Power cable',
                   border: OutlineInputBorder(
@@ -1010,7 +1135,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "power_cable_missing",
-                initialValue: false,
+                initialValue: data.json["power_cable_missing"] != null
+                    ? data.json["power_cable_missing"]
+                    : false,
                 title: Text(
                   "2 pcs",
                   style: TextStyle(
@@ -1040,6 +1167,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: 'PDB_serial_number',
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["PDB_serial_number"] != null
+                    ? data.json["PDB_serial_number"]
+                    : "",
                 decoration: InputDecoration(
                   labelText: 'Serial No :',
                   border: OutlineInputBorder(
@@ -1055,7 +1185,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "PDB_faulty_1",
-                initialValue: false,
+                initialValue: data.json["PDB_faulty_1"] != null
+                    ? data.json["PDB_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1068,8 +1200,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "PDB_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["PDB_remarks_1"] != null
+                    ? data.json["PDB_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(a) Power Distribution Board',
+                  labelText: 'PDB (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -1083,7 +1218,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "PDB_missing_1",
-                initialValue: false,
+                initialValue: data.json["PDB_missing_1"] != null
+                    ? data.json["PDB_missing_1"]
+                    : false,
                 title: Text(
                   "1 pcs",
                   style: TextStyle(
@@ -1117,7 +1254,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "PDB_faulty_2",
-                initialValue: false,
+                initialValue: data.json["PDB_faulty_2"] != null
+                    ? data.json["PDB_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1130,8 +1269,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "PDB_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["PDB_remarks_2"] != null
+                    ? data.json["PDB_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(b) Power Distribution Board',
+                  labelText: 'Power Distribution Board (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -1164,7 +1306,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "PDB_faulty_3",
-                initialValue: false,
+                initialValue: data.json["PDB_faulty_3"] != null
+                    ? data.json["PDB_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1177,8 +1321,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "PDB_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["PDB_remarks_3"] != null
+                    ? data.json["PDB_remarks_3"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(c) Power Distribution Board',
+                  labelText: 'Power Distribution Board (c)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -1210,7 +1357,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "PDB_faulty_4",
-                initialValue: false,
+                initialValue: data.json["PDB_faulty_4"] != null
+                    ? data.json["PDB_faulty_4"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1223,8 +1372,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "PDB_remarks_4",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["PDB_remarks_4"] != null
+                    ? data.json["PDB_remarks_4"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(d) Power Distribution Board',
+                  labelText: 'Power Distribution Board (d)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -1252,6 +1404,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: 'inverter_serial_number',
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["inverter_serial_number"] != null
+                    ? data.json["inverter_serial_number"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'Serial Number :',
                   border: OutlineInputBorder(
@@ -1267,7 +1422,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "inverter_faulty_1",
-                initialValue: false,
+                initialValue: data.json["inverter_faulty_1"] != null
+                    ? data.json["inverter_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1280,8 +1437,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "inverter_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["inverter_remarks_1"] != null
+                    ? data.json["inverter_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(a) Inverter',
+                  labelText: 'Inverter (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -1295,7 +1455,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "inverter_missing_1",
-                initialValue: false,
+                initialValue: data.json["inverter_missing_1"] != null
+                    ? data.json["inverter_missing_1"]
+                    : false,
                 title: Text(
                   "1 pcs",
                   style: TextStyle(
@@ -1335,7 +1497,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "inverter_faulty_2",
-                initialValue: false,
+                initialValue: data.json["inverter_faulty_2"] != null
+                    ? data.json["inverter_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1348,8 +1512,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "inverter_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["inverter_remarks_2"] != null
+                    ? data.json["inverter_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(b) Inverter',
+                  labelText: 'Inverter (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -1381,7 +1548,9 @@ Widget generateRightHandSideColumnRowElectricalSystem(
             Container(
               child: FormBuilderCheckbox(
                 name: "inverter_faulty_3",
-                initialValue: false,
+                initialValue: data.json["inverter_faulty_3"] != null
+                    ? data.json["inverter_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -1394,8 +1563,11 @@ Widget generateRightHandSideColumnRowElectricalSystem(
                 name: "inverter_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["inverter_remarks_3"] != null
+                    ? data.json["inverter_remarks_3"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(c.) Inverter',
+                  labelText: 'Inverter (c)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),

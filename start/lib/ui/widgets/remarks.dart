@@ -15,7 +15,7 @@ class _RemarksState extends State<Remarks> {
     return Container(
       child: FormBuilderTextField(
         name: 'remarks',
-        initialValue: widget.remarks ?? "",
+        initialValue: widget.remarks != null ? widget.remarks : '',
         keyboardType: TextInputType.multiline,
         maxLines: null,
         decoration: InputDecoration(
@@ -25,12 +25,6 @@ class _RemarksState extends State<Remarks> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-        ),
-        validator: FormBuilderValidators.compose(
-          [
-            FormBuilderValidators.required(context),
-            FormBuilderValidators.max(context, 70),
-          ],
         ),
       ),
     );

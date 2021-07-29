@@ -1,3 +1,4 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/core/models/post.dart';
 
@@ -32,7 +33,18 @@ class PostListItem extends StatelessWidget {
               '${post.json['node_number']}',
               style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16.0),
             ),
-            // Text(post.body, maxLines: 2, overflow: TextOverflow.fade)
+            Text(
+              '${post.json['location']}',
+              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16.0),
+            ),
+            Text(
+              '12 Missing Items',
+              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16.0),
+            ),
+            Text(
+              '10 Faulty Items',
+              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16.0),
+            ),
           ],
         ),
       ),

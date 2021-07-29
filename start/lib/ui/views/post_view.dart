@@ -62,16 +62,20 @@ class _PostViewState extends State<PostView> {
       builder: (context, model, child) => Scaffold(
         backgroundColor: backgroundColor,
         appBar: AppBar(
-          title: Text('RID'),
+          title: Text('RID Post View'),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.save),
               onPressed: () {
                 // _formKey.currentState.reset();
-                _formKey.currentState.save();
-                data = _formKey.currentState.value;
-                model.requestPermissionAndWriteData(data);
-                // print(_formKey.currentState.value);
+                final validationSuccess = _formKey.currentState.validate();
+                print("validation success = $validationSuccess");
+                if (validationSuccess) {
+                  _formKey.currentState.save();
+                  data = _formKey.currentState.value;
+                  model.requestPermissionAndWriteData(data);
+                  print(_formKey.currentState.value);
+                }
                 // model.readData();
               },
             ),
@@ -339,7 +343,7 @@ class _PostViewState extends State<PostView> {
                                   },
                                   rightSideItemBuilder: (context, index) {
                                     return generateRightHandSideColumnRowMiscPart1(
-                                        context, index);
+                                        context, index, widget.post);
                                   },
                                   itemCount: 1,
                                 ),
@@ -391,7 +395,7 @@ class _PostViewState extends State<PostView> {
                                   },
                                   rightSideItemBuilder: (context, index) {
                                     return generateRightHandSideColumnRowMiscPart2(
-                                        context, index);
+                                        context, index, widget.post);
                                   },
                                   itemCount: 1,
                                 ),
@@ -442,7 +446,7 @@ class _PostViewState extends State<PostView> {
                                   },
                                   rightSideItemBuilder: (context, index) {
                                     return generateRightHandSideColumnRowVRAS(
-                                        context, index);
+                                        context, index, widget.post);
                                   },
                                   itemCount: 1,
                                 ),
@@ -493,7 +497,7 @@ class _PostViewState extends State<PostView> {
                                   },
                                   rightSideItemBuilder: (context, index) {
                                     return generateRightHandSideColumnRowVHF(
-                                        context, index);
+                                        context, index, widget.post);
                                   },
                                   itemCount: 1,
                                 ),
@@ -544,7 +548,7 @@ class _PostViewState extends State<PostView> {
                                   },
                                   rightSideItemBuilder: (context, index) {
                                     return generateRightHandSideColumnRowIntraNodeLink(
-                                        context, index);
+                                        context, index, widget.post);
                                   },
                                   itemCount: 1,
                                 ),
@@ -560,7 +564,7 @@ class _PostViewState extends State<PostView> {
                       ),
                       UIHelper.verticalSpaceSmall(),
                       FMW1personnel(
-                        fmw1Personnel: "model.post.json[]",
+                        fmw1Personnel: "${widget.post.json["fmw1Personnel"]}",
                       ),
                       UIHelper.verticalSpaceSmall(),
                       Text(
@@ -571,7 +575,7 @@ class _PostViewState extends State<PostView> {
                       ),
                       UIHelper.verticalSpaceSmall(),
                       OtherPersonnel(
-                        otherPersonnel: "model.post.json[]",
+                        otherPersonnel: "${widget.post.json["otherPersonnel"]}",
                       ),
                       UIHelper.verticalSpaceSmall(),
                       Text(
@@ -582,7 +586,7 @@ class _PostViewState extends State<PostView> {
                       ),
                       UIHelper.verticalSpaceSmall(),
                       Remarks(
-                        remarks: "model.post.json[]",
+                        remarks: "${widget.post.json["remarks"]}",
                       ),
                       CompletionStatus(
                         value: 7.0,
@@ -614,8 +618,7 @@ List<Widget> _getTitleWidget() {
     _getTitleItemWidget('Expected Results', 175),
     _getTitleItemWidget('Pass/Fail', 100),
     _getTitleItemWidget('Remarks', 120),
-    _getTitleItemWidget('Accounting', 150),
-    _getTitleItemWidget('Notes', 100),
+    _getTitleItemWidget('Accounting/Notes', 150),
   ];
 }
 

@@ -65,10 +65,14 @@ class _RidView extends State<RidView> {
               icon: Icon(Icons.save),
               onPressed: () {
                 // _formKey.currentState.reset();
-                _formKey.currentState.save();
-                data = _formKey.currentState.value;
-                model.requestPermissionAndWriteData(data);
-                print(_formKey.currentState.value);
+                final validationSuccess = _formKey.currentState.validate();
+                print("validation success = $validationSuccess");
+                if (validationSuccess) {
+                  _formKey.currentState.save();
+                  data = _formKey.currentState.value;
+                  model.requestPermissionAndWriteData(data);
+                  print(_formKey.currentState.value);
+                }
                 // model.readData();
               },
             ),
@@ -557,7 +561,7 @@ class _RidView extends State<RidView> {
                       ),
                       UIHelper.verticalSpaceSmall(),
                       FMW1personnel(
-                        fmw1Personnel: "model.post.json[]",
+                        fmw1Personnel: "",
                       ),
                       UIHelper.verticalSpaceSmall(),
                       Text(
@@ -568,7 +572,7 @@ class _RidView extends State<RidView> {
                       ),
                       UIHelper.verticalSpaceSmall(),
                       OtherPersonnel(
-                        otherPersonnel: "model.post.json[]",
+                        otherPersonnel: "",
                       ),
                       UIHelper.verticalSpaceSmall(),
                       Text(
@@ -579,7 +583,7 @@ class _RidView extends State<RidView> {
                       ),
                       UIHelper.verticalSpaceSmall(),
                       Remarks(
-                        remarks: "model.post.json[]",
+                        remarks: "",
                       ),
                       CompletionStatus(
                         value: 7.0,

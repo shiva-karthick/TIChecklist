@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:intl/intl.dart';
+import 'package:provider_architecture/core/models/post.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 
 Widget generateRightHandSideColumnRowMiscPart2(
-    BuildContext context, int index) {
+    BuildContext context, int index, Post data) {
   double remarksWidth = 172;
   double remarksHeight = 136;
 
@@ -34,7 +36,10 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "RF_jumper_cable_25_BNC_N_faulty_1",
-                initialValue: false,
+                initialValue:
+                    data.json["RF_jumper_cable_25_BNC_N_faulty_1"] != null
+                        ? data.json["RF_jumper_cable_25_BNC_N_faulty_1"]
+                        : false,
                 title: Text(""),
               ),
               width: 50,
@@ -47,8 +52,12 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "RF_jumper_cable_25_BNC_N_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue:
+                    data.json["RF_jumper_cable_25_BNC_N_remarks_1"] != null
+                        ? data.json["RF_jumper_cable_25_BNC_N_remarks_1"]
+                        : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) 2.5m (BNC-N type)',
+                  labelText: '2.5m (BNC-N type) (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -62,7 +71,10 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "RF_jumper_cable_25_BNC_N_missing_1",
-                initialValue: false,
+                initialValue:
+                    data.json["RF_jumper_cable_25_BNC_N_missing_1"] != null
+                        ? data.json["RF_jumper_cable_25_BNC_N_missing_1"]
+                        : false,
                 title: Text(
                   "2 pcs",
                   style: TextStyle(
@@ -101,7 +113,10 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "RF_jumper_cable_25_BNC_N_faulty_2",
-                initialValue: false,
+                initialValue:
+                    data.json["RF_jumper_cable_25_BNC_N_faulty_2"] != null
+                        ? data.json["RF_jumper_cable_25_BNC_N_faulty_2"]
+                        : false,
                 title: Text(""),
               ),
               width: 50,
@@ -114,8 +129,12 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "RF_jumper_cable_25_BNC_N_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue:
+                    data.json["RF_jumper_cable_25_BNC_N_remarks_2"] != null
+                        ? data.json["RF_jumper_cable_25_BNC_N_remarks_2"]
+                        : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) 2.5m (BNC-N type)',
+                  labelText: '2.5m (BNC-N type) (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -152,7 +171,10 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "RF_jumper_cable_25_N_N_faulty_1",
-                initialValue: false,
+                initialValue:
+                    data.json["RF_jumper_cable_25_N_N_faulty_1"] != null
+                        ? data.json["RF_jumper_cable_25_N_N_faulty_1"]
+                        : false,
                 title: Text(""),
               ),
               width: 50,
@@ -165,8 +187,12 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "RF_jumper_cable_25_N_N_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue:
+                    data.json["RF_jumper_cable_25_N_N_remarks_1"] != null
+                        ? data.json["RF_jumper_cable_25_N_N_remarks_1"]
+                        : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) 2.5m (N-N type)',
+                  labelText: '2.5m (N-N type) (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -180,7 +206,10 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "RF_jumper_cable_25_N_N_missing_1",
-                initialValue: false,
+                initialValue:
+                    data.json["RF_jumper_cable_25_N_N_missing_1"] != null
+                        ? data.json["RF_jumper_cable_25_N_N_missing_1"]
+                        : false,
                 title: Text(
                   "1 pcs",
                   style: TextStyle(
@@ -219,7 +248,10 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "RF_jumper_cable_25_N_N_faulty_2",
-                initialValue: false,
+                initialValue:
+                    data.json["RF_jumper_cable_25_N_N_faulty_2"] != null
+                        ? data.json["RF_jumper_cable_25_N_N_faulty_2"]
+                        : false,
                 title: Text(""),
               ),
               width: 50,
@@ -232,8 +264,12 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "RF_jumper_cable_25_N_N_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue:
+                    data.json["RF_jumper_cable_25_N_N_remarks_2"] != null
+                        ? data.json["RF_jumper_cable_25_N_N_remarks_2"]
+                        : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) 2.5m (N-N type)',
+                  labelText: '2.5m (N-N type) (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -270,7 +306,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "RF_cable_drum_15_faulty_1",
-                initialValue: false,
+                initialValue: data.json["RF_cable_drum_15_faulty_1"] != null
+                    ? data.json["RF_cable_drum_15_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -283,8 +321,11 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "RF_cable_drum_15_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["RF_cable_drum_15_remarks_1"] != null
+                    ? data.json["RF_cable_drum_15_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) RF drum 15m',
+                  labelText: 'RF drum 15m (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -298,7 +339,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "RF_cable_drum_15_missing_1",
-                initialValue: false,
+                initialValue: data.json["RF_cable_drum_15_missing_1"] != null
+                    ? data.json["RF_cable_drum_15_missing_1"]
+                    : false,
                 title: Text(
                   "2 pcs",
                   style: TextStyle(
@@ -336,8 +379,10 @@ Widget generateRightHandSideColumnRowMiscPart2(
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "RF_cable_drum_15_missing_2",
-                initialValue: false,
+                name: "RF_cable_drum_15_faulty_2",
+                initialValue: data.json["RF_cable_drum_15_faulty_2"] != null
+                    ? data.json["RF_cable_drum_15_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -350,8 +395,11 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "RF_cable_drum_15_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["RF_cable_drum_15_remarks_2"] != null
+                    ? data.json["RF_cable_drum_15_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) RF drum 15m',
+                  labelText: 'RF drum 15m (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -374,7 +422,7 @@ Widget generateRightHandSideColumnRowMiscPart2(
               alignment: Alignment.centerLeft,
             ),
             Container(
-              child: Text("-No damage"),
+              child: Text("- No damage"),
               width: 175,
               height: 52,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -383,7 +431,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "chairs_faulty",
-                initialValue: false,
+                initialValue: data.json["chairs_faulty"] != null
+                    ? data.json["chairs_faulty"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -396,6 +446,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "chairs_remarks",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["chairs_remarks"] != null
+                    ? data.json["chairs_remarks"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'Chairs',
                   border: OutlineInputBorder(
@@ -411,7 +464,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "chairs_missing",
-                initialValue: false,
+                initialValue: data.json["chairs_missing"] != null
+                    ? data.json["chairs_missing"]
+                    : false,
                 title: Text(
                   "2 pcs",
                   style: TextStyle(
@@ -445,7 +500,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "fire_extinguisher_faulty_1",
-                initialValue: false,
+                initialValue: data.json["fire_extinguisher_faulty_1"] != null
+                    ? data.json["fire_extinguisher_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -458,8 +515,11 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "fire_extinguisher_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["fire_extinguisher_remarks_1"] != null
+                    ? data.json["fire_extinguisher_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) Fire Extinguisher',
+                  labelText: 'Fire Extinguisher (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -473,7 +533,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "fire_extinguisher_missing_1",
-                initialValue: false,
+                initialValue: data.json["fire_extinguisher_missing_1"] != null
+                    ? data.json["fire_extinguisher_missing_1"]
+                    : false,
                 title: Text(
                   "1 pcs",
                   style: TextStyle(
@@ -506,8 +568,10 @@ Widget generateRightHandSideColumnRowMiscPart2(
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "fireExtinguisher_faulty_2",
-                initialValue: false,
+                name: "fire_extinguisher_faulty_2",
+                initialValue: data.json["fire_extinguisher_faulty_2"] != null
+                    ? data.json["fire_extinguisher_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -517,11 +581,14 @@ Widget generateRightHandSideColumnRowMiscPart2(
             ),
             Container(
               child: FormBuilderTextField(
-                name: "fireExtinguisher_remarks_2",
+                name: "fire_extinguisher_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["fire_extinguisher_remarks_2"] != null
+                    ? data.json["fire_extinguisher_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) Fire Extinguisher',
+                  labelText: 'Fire Extinguisher (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -545,8 +612,11 @@ Widget generateRightHandSideColumnRowMiscPart2(
             ),
             Container(
               child: FormBuilderDateTimePicker(
-                name: "fireExtinguisherDue_date",
-                initialValue: DateTime.now(),
+                name: "fire_extinguisher_due_date",
+                initialValue: data.json["fire_extinguisher_due_date"] != null
+                    ? DateFormat("yyyy-MM-dd hh:mm:ss")
+                        .parse(data.json["fire_extinguisher_due_date"])
+                    : DateTime.now(),
                 decoration: InputDecoration(
                   labelText: 'Due Date:',
                   border: OutlineInputBorder(
@@ -562,7 +632,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "fire_extinguisher_faulty_3",
-                initialValue: false,
+                initialValue: data.json["fire_extinguisher_faulty_3"] != null
+                    ? data.json["fire_extinguisher_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -575,8 +647,11 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "fire_extinguisher_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["fire_extinguisher_remarks_3"] != null
+                    ? data.json["fire_extinguisher_remarks_3"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(c.) Fire Extinguisher',
+                  labelText: 'Fire Extinguisher (c)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -608,7 +683,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "antenna_base_faulty_1",
-                initialValue: false,
+                initialValue: data.json["antenna_base_faulty_1"] != null
+                    ? data.json["antenna_base_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -618,11 +695,14 @@ Widget generateRightHandSideColumnRowMiscPart2(
             ),
             Container(
               child: FormBuilderTextField(
-                name: "AntennaBase_remarks_1",
+                name: "antenna_base_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["antenna_base_remarks_1"] != null
+                    ? data.json["antenna_base_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) Antenna Base',
+                  labelText: 'Antenna Base (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -635,8 +715,10 @@ Widget generateRightHandSideColumnRowMiscPart2(
             ),
             Container(
               child: FormBuilderCheckbox(
-                name: "AntennaBase_missing_1",
-                initialValue: false,
+                name: "antenna_base_missing_1",
+                initialValue: data.json["antenna_base_missing_1"] != null
+                    ? data.json["antenna_base_missing_1"]
+                    : false,
                 title: Text(
                   "6 pcs",
                   style: TextStyle(
@@ -679,7 +761,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "antenna_base_faulty_2",
-                initialValue: false,
+                initialValue: data.json["antenna_base_faulty_2"] != null
+                    ? data.json["antenna_base_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -692,8 +776,11 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "antenna_base_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["antenna_base_remarks_2"] != null
+                    ? data.json["antenna_base_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) Antenna Base',
+                  labelText: 'Antenna Base (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -725,7 +812,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "lower_whip_section_faulty_1",
-                initialValue: false,
+                initialValue: data.json["lower_whip_section_faulty_1"] != null
+                    ? data.json["lower_whip_section_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -738,8 +827,11 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "lower_whip_section_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["lower_whip_section_remarks_1"] != null
+                    ? data.json["lower_whip_section_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(a.) Lower Whip',
+                  labelText: 'Lower Whip (a)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -753,7 +845,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "lower_whip_section_missing_1",
-                initialValue: false,
+                initialValue: data.json["lower_whip_section_missing_1"] != null
+                    ? data.json["lower_whip_section_missing_1"]
+                    : false,
                 title: Text(
                   "6 pcs",
                   style: TextStyle(
@@ -788,7 +882,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "lower_whip_section_faulty_2",
-                initialValue: false,
+                initialValue: data.json["lower_whip_section_faulty_2"] != null
+                    ? data.json["lower_whip_section_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -801,8 +897,11 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "lower_whip_section_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["lower_whip_section_remarks_2"] != null
+                    ? data.json["lower_whip_section_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
-                  labelText: '(b.) Lower Whip',
+                  labelText: 'Lower Whip (b)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -834,7 +933,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "antenna_head_faulty_1",
-                initialValue: false,
+                initialValue: data.json["antenna_head_faulty_1"] != null
+                    ? data.json["antenna_head_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -847,6 +948,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 name: "antenna_head_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["antenna_head_remarks_1"] != null
+                    ? data.json["antenna_head_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'Antenna Head',
                   border: OutlineInputBorder(
@@ -862,7 +966,9 @@ Widget generateRightHandSideColumnRowMiscPart2(
             Container(
               child: FormBuilderCheckbox(
                 name: "antenna_head_missing_1",
-                initialValue: false,
+                initialValue: data.json["antenna_head_missing_1"] != null
+                    ? data.json["antenna_head_missing_1"]
+                    : false,
                 title: Text(
                   "1 pcs",
                   style: TextStyle(

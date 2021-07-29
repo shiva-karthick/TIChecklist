@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:provider_architecture/core/models/post.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 
 Widget generateRightHandSideColumnRowIntraNodeLink(
-    BuildContext context, int index) {
+    BuildContext context, int index, Post data) {
   double remarksWidth = 172;
   double remarksHeight = 136;
 
@@ -35,7 +36,9 @@ Widget generateRightHandSideColumnRowIntraNodeLink(
             Container(
               child: FormBuilderCheckbox(
                 name: "rid_to_dsd_faulty_1",
-                initialValue: false,
+                initialValue: data.json["rid_to_dsd_faulty_1"] != null
+                    ? data.json["rid_to_dsd_faulty_1"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -48,6 +51,9 @@ Widget generateRightHandSideColumnRowIntraNodeLink(
                 name: "rid_to_dsd_remarks_1",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["rid_to_dsd_remarks_1"] != null
+                    ? data.json["rid_to_dsd_remarks_1"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'Intra Node (a)',
                   border: OutlineInputBorder(
@@ -89,7 +95,9 @@ Widget generateRightHandSideColumnRowIntraNodeLink(
             Container(
               child: FormBuilderCheckbox(
                 name: "rid_to_dsd_faulty_2",
-                initialValue: false,
+                initialValue: data.json["rid_to_dsd_faulty_2"] != null
+                    ? data.json["rid_to_dsd_faulty_2"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -102,6 +110,9 @@ Widget generateRightHandSideColumnRowIntraNodeLink(
                 name: "rid_to_dsd_remarks_2",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["rid_to_dsd_remarks_2"] != null
+                    ? data.json["rid_to_dsd_remarks_2"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'Intra Node (b)',
                   border: OutlineInputBorder(
@@ -141,7 +152,9 @@ Widget generateRightHandSideColumnRowIntraNodeLink(
             Container(
               child: FormBuilderCheckbox(
                 name: "rid_to_dsd_faulty_3",
-                initialValue: false,
+                initialValue: data.json["rid_to_dsd_faulty_3"] != null
+                    ? data.json["rid_to_dsd_faulty_3"]
+                    : false,
                 title: Text(""),
               ),
               width: 50,
@@ -154,6 +167,9 @@ Widget generateRightHandSideColumnRowIntraNodeLink(
                 name: "rid_to_dsd_remarks_3",
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                initialValue: data.json["rid_to_dsd_remarks_3"] != null
+                    ? data.json["rid_to_dsd_remarks_3"]
+                    : '',
                 decoration: InputDecoration(
                   labelText: 'Intra Node (c)',
                   border: OutlineInputBorder(
@@ -169,7 +185,9 @@ Widget generateRightHandSideColumnRowIntraNodeLink(
             Container(
               child: FormBuilderCheckbox(
                 name: "idc_console_missing",
-                initialValue: false,
+                initialValue: data.json["idc_console_missing"] != null
+                    ? data.json["idc_console_missing"]
+                    : false,
                 title: Text(
                   "1 pcs",
                   style: TextStyle(
