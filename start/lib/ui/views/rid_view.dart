@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
+import 'package:provider_architecture/core/viewModels/home_model.dart';
 import 'package:provider_architecture/core/viewModels/vehicle_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
@@ -49,6 +50,9 @@ class _RidView extends State<RidView> {
   bool visibilityVHFRadioSystem = false;
   bool visibilityIntraNodeLink = false;
 
+  final saveSnackBar = SnackBar(content: Text('Saved Successfully 🚀'));
+  final clearSnackBar = SnackBar(content: Text('Reset done 🔄'));
+
   @override
   Widget build(BuildContext context) {
     return BaseView<VehicleModel>(
@@ -59,30 +63,32 @@ class _RidView extends State<RidView> {
       builder: (context, model, child) => Scaffold(
         backgroundColor: backgroundColor,
         appBar: AppBar(
-          title: Text('RID View'),
+          title: Text('Setting up RID ...'),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.save),
+              icon: Icon(Icons.restart_alt),
               onPressed: () {
-                // _formKey.currentState.reset();
-                final validationSuccess = _formKey.currentState.validate();
-                print("validation success = $validationSuccess");
-                if (validationSuccess) {
-                  _formKey.currentState.save();
-                  data = _formKey.currentState.value;
-                  model.requestPermissionAndWriteData(data);
-                  print(_formKey.currentState.value);
-                }
-                // model.readData();
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.check),
-              onPressed: () {
-                model.readData();
+                _formKey.currentState.reset();
+                ScaffoldMessenger.of(context).showSnackBar(clearSnackBar);
               },
             ),
           ],
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {
+            final validationSuccess = _formKey.currentState.validate();
+            if (validationSuccess) {
+              _formKey.currentState.save();
+              data = _formKey.currentState.value;
+              model.requestPermissionAndWriteData(data);
+              print(_formKey.currentState.value);
+              ScaffoldMessenger.of(context).showSnackBar(saveSnackBar);
+            }
+            // model.readData();
+          },
+          icon: Icon(Icons.thumb_up),
+          label: Text('Save'),
+          backgroundColor: Colors.pink,
         ),
         body: SafeArea(
           child: ListView(
@@ -100,13 +106,16 @@ class _RidView extends State<RidView> {
                     // mainAxisSize: MainAxisSize.min,
                     children: [
                       DetachmentDetail(),
-                      ElevatedButton(
-                        onPressed: () {
-                          visibilityExterior = !visibilityExterior;
-                          setState(() {});
-                        },
-                        child: Text("Exterior ↕️"),
-                      ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     visibilityExterior = !visibilityExterior;
+                      //     _formKey.currentState.save();
+                      //     data = _formKey.currentState.value;
+                      //     model.requestPermissionAndWriteData(data);
+                      //     setState(() {});
+                      //   },
+                      //   child: Text("Exterior ↕️"),
+                      // ),
                       visibilityExterior
                           ? Visibility(
                               maintainSize: true,
@@ -243,14 +252,14 @@ class _RidView extends State<RidView> {
                               ),
                             )
                           : Container(),
-                      ElevatedButton(
-                        onPressed: () {
-                          visibilityElectricalSystem =
-                              !visibilityElectricalSystem;
-                          setState(() {});
-                        },
-                        child: Text("Electrical System ↕️"),
-                      ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     visibilityElectricalSystem =
+                      //         !visibilityElectricalSystem;
+                      //     setState(() {});
+                      //   },
+                      //   child: Text("Electrical System ↕️"),
+                      // ),
                       visibilityElectricalSystem
                           ? Visibility(
                               maintainSize: true,
@@ -295,14 +304,14 @@ class _RidView extends State<RidView> {
                               ),
                             )
                           : Container(),
-                      ElevatedButton(
-                        onPressed: () {
-                          visibilityMiscellaneousPart1 =
-                              !visibilityMiscellaneousPart1;
-                          setState(() {});
-                        },
-                        child: Text("Miscellaneous part 1 (2.15-2.22) ↕️"),
-                      ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     visibilityMiscellaneousPart1 =
+                      //         !visibilityMiscellaneousPart1;
+                      //     setState(() {});
+                      //   },
+                      //   child: Text("Miscellaneous part 1 (2.15-2.22) ↕️"),
+                      // ),
                       visibilityMiscellaneousPart1
                           ? Visibility(
                               maintainSize: true,
@@ -347,14 +356,14 @@ class _RidView extends State<RidView> {
                               ),
                             )
                           : Container(),
-                      ElevatedButton(
-                        onPressed: () {
-                          visibilityMiscellaneousPart2 =
-                              !visibilityMiscellaneousPart2;
-                          setState(() {});
-                        },
-                        child: Text("Miscellaneous part 2 (2.23-2.30) ↕️"),
-                      ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     visibilityMiscellaneousPart2 =
+                      //         !visibilityMiscellaneousPart2;
+                      //     setState(() {});
+                      //   },
+                      //   child: Text("Miscellaneous part 2 (2.23-2.30) ↕️"),
+                      // ),
                       visibilityMiscellaneousPart2
                           ? Visibility(
                               maintainSize: true,
@@ -399,13 +408,13 @@ class _RidView extends State<RidView> {
                               ),
                             )
                           : Container(),
-                      ElevatedButton(
-                        onPressed: () {
-                          visibilityVRAS = !visibilityVRAS;
-                          setState(() {});
-                        },
-                        child: Text("Voice and Radio Access System (VRAS) ↕️"),
-                      ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     visibilityVRAS = !visibilityVRAS;
+                      //     setState(() {});
+                      //   },
+                      //   child: Text("Voice and Radio Access System (VRAS) ↕️"),
+                      // ),
                       visibilityVRAS
                           ? Visibility(
                               maintainSize: true,
@@ -450,13 +459,13 @@ class _RidView extends State<RidView> {
                               ),
                             )
                           : Container(),
-                      ElevatedButton(
-                        onPressed: () {
-                          visibilityVHFRadioSystem = !visibilityVHFRadioSystem;
-                          setState(() {});
-                        },
-                        child: Text("VHF Radio System↕️"),
-                      ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     visibilityVHFRadioSystem = !visibilityVHFRadioSystem;
+                      //     setState(() {});
+                      //   },
+                      //   child: Text("VHF Radio System↕️"),
+                      // ),
                       visibilityVHFRadioSystem
                           ? Visibility(
                               maintainSize: true,
@@ -501,13 +510,13 @@ class _RidView extends State<RidView> {
                               ),
                             )
                           : Container(),
-                      ElevatedButton(
-                        onPressed: () {
-                          visibilityIntraNodeLink = !visibilityIntraNodeLink;
-                          setState(() {});
-                        },
-                        child: Text("Intra-Node Link↕️"),
-                      ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     visibilityIntraNodeLink = !visibilityIntraNodeLink;
+                      //     setState(() {});
+                      //   },
+                      //   child: Text("Intra-Node Link↕️"),
+                      // ),
                       visibilityIntraNodeLink
                           ? Visibility(
                               maintainSize: true,
@@ -576,7 +585,7 @@ class _RidView extends State<RidView> {
                       ),
                       UIHelper.verticalSpaceSmall(),
                       Text(
-                        'Remarks',
+                        'Remarks i.e vehicle status',
                         style: TextStyle(
                           fontSize: 24,
                         ),

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
+import 'package:provider_architecture/ui/widgets/global.dart' as global;
 
 Widget generateRightHandSideColumnRowExterior(BuildContext context, int index) {
   double remarksWidth = 168;
   double remarksHeight = 96;
+
+  final _formKey = global.formKey;
 
   return InteractiveViewer(
     child: Column(
@@ -28,7 +31,8 @@ Widget generateRightHandSideColumnRowExterior(BuildContext context, int index) {
             Container(
               child: FormBuilderCheckbox(
                 name: "FOSEP_faulty",
-                initialValue: false,
+                initialValue:
+                    _formKey?.currentState?.fields["FOSEP_faulty"] ?? false,
                 title: Text(""),
               ),
               width: 50,

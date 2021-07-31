@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:provider_architecture/core/models/post.dart';
+import 'package:provider_architecture/core/viewModels/home_model.dart';
 import 'package:provider_architecture/core/viewModels/postview_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
+import 'package:provider_architecture/ui/views/home_view.dart';
 import 'package:provider_architecture/ui/widgets/completion_status.dart';
 import 'package:provider_architecture/ui/widgets/fmw1_personnel.dart';
 import 'package:provider_architecture/ui/widgets/other_personnel.dart';
@@ -51,41 +53,64 @@ class _PostViewState extends State<PostView> {
   bool visibilityVHFRadioSystem = false;
   bool visibilityIntraNodeLink = false;
 
+  final saveSnackBar = SnackBar(content: Text('Saved Successfully 👍'));
+  final undoSnackBar = SnackBar(content: Text('Undo 🔄'));
+  final errorSnackBar = SnackBar(content: Text('Fill up required fields❗️ 🔺'));
+
+  void save(VehicleModel model) {
+    final validationSuccess = _formKey.currentState.validate();
+    if (validationSuccess) {
+      _formKey.currentState.save();
+      data = _formKey.currentState.value;
+      model.requestPermissionAndWriteData(data);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(errorSnackBar);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BaseView<VehicleModel>(
       onModelReady: (model) {
         // Call something on the model,
         // perform any starting logic code we want to use,
-        // model.post = widget.post;
       },
       builder: (context, model, child) => Scaffold(
         backgroundColor: backgroundColor,
         appBar: AppBar(
-          title: Text('RID Post View'),
+          // leading: IconButton(
+          //   onPressed: () {},
+          //   icon: Icon(Icons.arrow_back_ios_new),
+          // ),
+          title: Text('Diving deep into RID'),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.save),
+              icon: Icon(Icons.undo),
               onPressed: () {
-                // _formKey.currentState.reset();
-                final validationSuccess = _formKey.currentState.validate();
-                print("validation success = $validationSuccess");
-                if (validationSuccess) {
-                  _formKey.currentState.save();
-                  data = _formKey.currentState.value;
-                  model.requestPermissionAndWriteData(data);
-                  print(_formKey.currentState.value);
-                }
-                // model.readData();
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.check),
-              onPressed: () {
-                model.readData();
+                _formKey.currentState.reset();
+                ScaffoldMessenger.of(context).showSnackBar(undoSnackBar);
               },
             ),
           ],
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {
+            final validationSuccess = _formKey.currentState.validate();
+            if (validationSuccess) {
+              _formKey.currentState.save();
+              data = _formKey.currentState.value;
+              model.requestPermissionAndWriteData(data);
+              // print(_formKey.currentState.value);
+
+              /// Find the ScaffoldMessenger in the widget tree and use it to show a SnackBar.
+              ScaffoldMessenger.of(context).showSnackBar(saveSnackBar);
+            }
+
+            // model.readData();
+          },
+          icon: Icon(Icons.thumb_up),
+          label: Text('Save'),
+          backgroundColor: Colors.pink,
         ),
         body: SafeArea(
           child: ListView(
@@ -106,6 +131,7 @@ class _PostViewState extends State<PostView> {
                       ElevatedButton(
                         onPressed: () {
                           visibilityExterior = !visibilityExterior;
+                          save(model);
                           setState(() {});
                         },
                         child: Text("Exterior ↕️"),
@@ -250,6 +276,7 @@ class _PostViewState extends State<PostView> {
                         onPressed: () {
                           visibilityElectricalSystem =
                               !visibilityElectricalSystem;
+                          save(model);
                           setState(() {});
                         },
                         child: Text("Electrical System ↕️"),
@@ -302,6 +329,7 @@ class _PostViewState extends State<PostView> {
                         onPressed: () {
                           visibilityMiscellaneousPart1 =
                               !visibilityMiscellaneousPart1;
+                          save(model);
                           setState(() {});
                         },
                         child: Text("Miscellaneous part 1 (2.15-2.22) ↕️"),
@@ -354,6 +382,7 @@ class _PostViewState extends State<PostView> {
                         onPressed: () {
                           visibilityMiscellaneousPart2 =
                               !visibilityMiscellaneousPart2;
+                          save(model);
                           setState(() {});
                         },
                         child: Text("Miscellaneous part 2 (2.23-2.30) ↕️"),
@@ -405,6 +434,7 @@ class _PostViewState extends State<PostView> {
                       ElevatedButton(
                         onPressed: () {
                           visibilityVRAS = !visibilityVRAS;
+                          save(model);
                           setState(() {});
                         },
                         child: Text("Voice and Radio Access System (VRAS) ↕️"),
@@ -456,6 +486,7 @@ class _PostViewState extends State<PostView> {
                       ElevatedButton(
                         onPressed: () {
                           visibilityVHFRadioSystem = !visibilityVHFRadioSystem;
+                          save(model);
                           setState(() {});
                         },
                         child: Text("VHF Radio System↕️"),
@@ -507,6 +538,7 @@ class _PostViewState extends State<PostView> {
                       ElevatedButton(
                         onPressed: () {
                           visibilityIntraNodeLink = !visibilityIntraNodeLink;
+                          save(model);
                           setState(() {});
                         },
                         child: Text("Intra-Node Link↕️"),
@@ -579,7 +611,7 @@ class _PostViewState extends State<PostView> {
                       ),
                       UIHelper.verticalSpaceSmall(),
                       Text(
-                        'Remarks',
+                        'Remarks i.e vehicle status',
                         style: TextStyle(
                           fontSize: 24,
                         ),

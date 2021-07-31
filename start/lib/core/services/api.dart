@@ -8,7 +8,6 @@ import 'package:provider_architecture/core/models/post.dart';
 import 'package:provider_architecture/core/models/user.dart';
 import 'package:http/http.dart' as http;
 
-/// The service responsible for networking requests
 class Api {
   static const endpoint = 'https://jsonplaceholder.typicode.com';
 
@@ -34,7 +33,7 @@ class Api {
   Future<void> _showFilesinDir() async {
     final dir = await getExternalStorageDirectory();
 
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < 10; i++) {
       dir.list(recursive: false, followLinks: false).listen(
         (FileSystemEntity entity) {
           filePaths = filePaths.toSet().toList();
@@ -42,30 +41,9 @@ class Api {
           filePaths = filePaths.toSet().toList();
         },
       );
-    }
-    for (var i = 0; i < 2; i++) {
-      dir.list(recursive: false, followLinks: false).listen(
-        (FileSystemEntity entity) {
-          filePaths = filePaths.toSet().toList();
-          filePaths.add(entity.path);
-          filePaths = filePaths.toSet().toList();
-        },
-      );
-    }
-    if (filePaths.isEmpty) {
-      for (var i = 0; i < 4; i++) {
-        dir.list(recursive: false, followLinks: false).listen(
-          (FileSystemEntity entity) {
-            filePaths = filePaths.toSet().toList();
-            filePaths.add(entity.path);
-            filePaths = filePaths.toSet().toList();
-          },
-        );
-      }
     }
   }
 
-  //List<Post>
   Future<List<Post>> getPostsForUser() async {
     // Get all the directory names stores in a List
     _showFilesinDir();
@@ -77,7 +55,9 @@ class Api {
     if (await Permission.storage.request().isGranted) {
       for (var path in filePaths) {
         try {
+          // print(path);
           var file = File('$path');
+
           Map<String, dynamic> myJson =
               await json.decode(await file.readAsString());
 
@@ -107,20 +87,31 @@ class Api {
     return posts;
   }
 
-  Future<List<Comment>> getCommentsForPost(int postId) async {
-    List<Comment> comments = [];
+  Future<int> deleteFile(File fileName) async {
+    try {
+      final file = await fileName;
 
-    // Get comments for post
-    var response = await client.get('$endpoint/comments?postId=$postId');
-
-    // Parse into List
-    var parsed = json.decode(response.body) as List<dynamic>;
-
-    // Loop and convert each item to a Comment
-    for (var comment in parsed) {
-      comments.add(Comment.fromJson(comment));
+      await file.delete();
+      return 1;
+    } catch (e) {
+      return 0;
     }
-
-    return comments;
   }
+
+  // Future<List<Comment>> getCommentsForPost(int postId) async {
+  //   List<Comment> comments = [];
+
+  //   // Get comments for post
+  //   var response = await client.get('$endpoint/comments?postId=$postId');
+
+  //   // Parse into List
+  //   var parsed = json.decode(response.body) as List<dynamic>;
+
+  //   // Loop and convert each item to a Comment
+  //   for (var comment in parsed) {
+  //     comments.add(Comment.fromJson(comment));
+  //   }
+
+  //   return comments;
+  // }
 }

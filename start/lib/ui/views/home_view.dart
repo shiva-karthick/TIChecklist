@@ -21,6 +21,7 @@ class HomeView extends StatelessWidget {
       builder: (context, model, child) => Scaffold(
         backgroundColor: backgroundColor,
         appBar: AppBar(
+          title: Text('Welcome ${Provider.of<User>(context).username}'),
           actions: [
             IconButton(
               icon: Icon(Icons.refresh),
@@ -35,20 +36,20 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    UIHelper.verticalSpaceSmall(),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text(
-                        'Welcome ${Provider.of<User>(context).username}',
-                        style: headerStyle,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text('Here are all your posts',
-                          style: subHeaderStyle),
-                    ),
-                    UIHelper.verticalSpaceSmall(),
+                    // UIHelper.verticalSpaceSmall(),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(left: 20.0),
+                    //   child: Text(
+                    //     'Welcome ${Provider.of<User>(context).username}',
+                    //     style: headerStyle,
+                    //   ),
+                    // ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(left: 20.0),
+                    //   child: Text('Here are all your vehicle data',
+                    //       style: subHeaderStyle),
+                    // ),
+                    // UIHelper.verticalSpaceSmall(),
                     Expanded(
                       child: getPostsUi(model.posts),
                     ),
