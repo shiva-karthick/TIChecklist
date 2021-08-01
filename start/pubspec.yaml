@@ -33,10 +33,13 @@ dependencies:
   permission_handler: ^8.1.2
   intl: ^0.17.0
   timeline_tile: ^2.0.0
-  horizontal_data_table: ^2.5.2
+  horizontal_data_table: ^2.5.2 # Creating tables
   fl_chart: ^0.36.3
-  percent_indicator: "^2.1.7+2"
-  dartdoc: ^1.0.0
+  percent_indicator: "^2.1.7+2" # For showing graphs
+  dartdoc: ^1.0.0 # For documenting code, creating HTML files
+  share_extend: "^2.0.0" # A Flutter plugin to share content from your Flutter app via the platform's share dialog.
+
+
 
 
   

@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:share_extend/share_extend.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/core/models/post.dart';
@@ -21,8 +21,7 @@ class PostListItem extends StatefulWidget {
 class _PostListItemState extends State<PostListItem> {
   Api _api = locator<Api>();
 
-  final deleteSnackBar =
-      SnackBar(content: Text('Deleted successfully 🗑, 🔄 refresh the page'));
+  final deleteSnackBar = SnackBar(content: Text('Deleted successfully 🗑'));
 
   @override
   Widget build(BuildContext context) {
@@ -86,9 +85,13 @@ class _PostListItemState extends State<PostListItem> {
                   radius: 80.0,
                   lineWidth: 8.0,
                   animation: true,
-                  percent: 0.7,
+                  percent: widget.post.json['total_faulty_items'] != null
+                      ? ((100 / 114) * widget.post.json['total_faulty_items'])
+                              .ceilToDouble() /
+                          100
+                      : 0,
                   center: new Text(
-                    "70.0%",
+                    "${widget.post.json['total_faulty_items'] != null ? ((100 / 114) * widget.post.json['total_faulty_items']).ceilToDouble() : "nil"} %",
                     style: new TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 16.0),
                   ),
@@ -105,9 +108,13 @@ class _PostListItemState extends State<PostListItem> {
                   radius: 80.0,
                   lineWidth: 8.0,
                   animation: true,
-                  percent: 0.7,
+                  percent: widget.post.json['total_missing_items'] != null
+                      ? ((100 / 43) * widget.post.json['total_missing_items'])
+                              .ceilToDouble() /
+                          100
+                      : 0,
                   center: new Text(
-                    "30.0%",
+                    "${widget.post.json['total_missing_items'] != null ? ((100 / 43) * widget.post.json['total_missing_items']).ceilToDouble() : "nil"} %",
                     style: new TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 16.0),
                   ),
@@ -119,6 +126,19 @@ class _PostListItemState extends State<PostListItem> {
                   circularStrokeCap: CircularStrokeCap.round,
                   progressColor: Colors.purple,
                 ),
+                UIHelper.horizontalSpaceSmall(),
+                ElevatedButton(
+                  onPressed: () {
+                    // setState(() {});
+
+                    ShareExtend.share(
+                        "/storage/emulated/0/Android/data/com.example.start/files/${widget.post.json['node_number']}.json",
+                        "file");
+                  },
+                  child: Icon(
+                    Icons.share,
+                  ),
+                ),
               ],
             ),
             UIHelper.verticalSpaceSmall(),
@@ -129,8 +149,26 @@ class _PostListItemState extends State<PostListItem> {
                   animation: true,
                   lineHeight: 20.0,
                   animationDuration: 2500,
-                  percent: widget.post.json['slider'] / 10.0,
-                  center: Text("${widget.post.json['slider'] * 10}% completed"),
+                  percent: (((200 -
+                                  (widget.post.json['total_missing_items'] !=
+                                          null
+                                      ? ((100 / 43) *
+                                              widget.post
+                                                  .json['total_missing_items'])
+                                          .ceilToDouble()
+                                      : 100) -
+                                  (widget.post.json['total_faulty_items'] !=
+                                          null
+                                      ? ((100 / 114) *
+                                              widget.post
+                                                  .json['total_faulty_items'])
+                                          .ceilToDouble()
+                                      : 100)) /
+                              2)
+                          .ceilToDouble()) /
+                      100,
+                  center: Text(
+                      "${((200 - (widget.post.json['total_missing_items'] != null ? ((100 / 43) * widget.post.json['total_missing_items']).ceilToDouble() : 100) - (widget.post.json['total_faulty_items'] != null ? ((100 / 114) * widget.post.json['total_faulty_items']).ceilToDouble() : 100)) / 2).ceilToDouble()} % completed"),
                   linearStrokeCap: LinearStrokeCap.roundAll,
                   progressColor: Colors.green,
                 ),
@@ -143,7 +181,8 @@ class _PostListItemState extends State<PostListItem> {
                           "/storage/emulated/0/Android/data/com.example.start/files/${widget.post.json['node_number']}.json"),
                     );
                     ScaffoldMessenger.of(context).showSnackBar(deleteSnackBar);
-                    _api.getPostsForUser();
+                    Navigator.pop(context); // pop current page
+                    Navigator.pushNamed(context, "/"); // push it back in
                   },
                   child: Icon(
                     Icons.delete,

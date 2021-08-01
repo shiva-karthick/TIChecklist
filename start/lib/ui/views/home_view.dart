@@ -10,8 +10,14 @@ import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/floating_button.dart';
 import 'package:provider_architecture/ui/widgets/postlist_item.dart';
+import 'dart:async';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
+  @override
+  _HomeViewState createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return BaseView<HomeModel>(
@@ -21,12 +27,20 @@ class HomeView extends StatelessWidget {
       builder: (context, model, child) => Scaffold(
         backgroundColor: backgroundColor,
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context); // pop current page
+              Navigator.pushNamed(context, "/login"); // push it back in
+            },
+            icon: Icon(Icons.arrow_back_ios_new),
+          ),
           title: Text('Welcome ${Provider.of<User>(context).username}'),
           actions: [
             IconButton(
               icon: Icon(Icons.refresh),
               onPressed: () {
                 model.getFiles();
+                setState(() {});
               },
             ),
           ],
@@ -50,9 +64,22 @@ class HomeView extends StatelessWidget {
                     //       style: subHeaderStyle),
                     // ),
                     // UIHelper.verticalSpaceSmall(),
-                    Expanded(
-                      child: getPostsUi(model.posts),
-                    ),
+                    model.posts.length != 0
+                        ? Expanded(
+                            child: getPostsUi(model.posts),
+                          )
+                        : Padding(
+                            padding:
+                                const EdgeInsets.fromLTRB(8.0, 240.0, 8.0, 8.0),
+                            child: Center(
+                              child: Text(
+                                " No posts here. \n Click the green button to get started.",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ),
+                          ),
                   ],
                 ),
               )

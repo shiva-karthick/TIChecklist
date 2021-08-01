@@ -30,12 +30,12 @@ class VehicleModel extends BaseModel {
       // Get the keys and convert all DateTime objects to String
       for (String key in modifiedData.keys) {
         if (key.contains('Date') || key.contains('date')) {
-          print(modifiedData[key]);
+          // print(modifiedData[key]);
           modifiedData[key] =
               DateFormat("yyyy-MM-dd hh:mm:ss").format(modifiedData[key]);
         }
       }
-      print(modifiedData);
+      // print(modifiedData);
       return file.writeAsString(json.encode(modifiedData));
     } else {
       await Permission.storage.request();

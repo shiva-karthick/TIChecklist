@@ -16,7 +16,7 @@ class HomeModel extends BaseModel {
   Future getFiles() async {
     setState(ViewState.Busy);
     _posts = await _postsService.getPosts();
-
+    notifyListeners();
     setState(ViewState.Idle);
   }
 
