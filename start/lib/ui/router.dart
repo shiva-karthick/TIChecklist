@@ -4,8 +4,6 @@ import 'package:provider_architecture/ui/views/home_view.dart';
 import 'package:provider_architecture/ui/views/login_view.dart';
 import 'package:provider_architecture/ui/views/post_view.dart';
 import 'package:provider_architecture/ui/views/rid_view.dart';
-import 'package:provider_architecture/ui/views/tab_container.dart';
-import 'package:provider_architecture/ui/views/test_view.dart';
 
 class myRouter {
   /// static function that will generate our route

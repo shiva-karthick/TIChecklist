@@ -35,7 +35,12 @@ class LoginHeader extends StatelessWidget {
         this.validationMessage != null
             ? Text(
                 validationMessage,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w900,
+                  backgroundColor: Colors.white,
+                ),
               )
             : Container()
       ],
@@ -60,7 +65,7 @@ class LoginTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: TextField(
-          decoration: InputDecoration.collapsed(hintText: 'User name'),
+          decoration: InputDecoration.collapsed(hintText: 'Enter name'),
           controller: controller),
     );
   }

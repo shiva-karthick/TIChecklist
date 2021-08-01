@@ -1,28 +1,19 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:provider_architecture/core/models/comment.dart';
 import 'package:provider_architecture/core/models/post.dart';
-import 'package:provider_architecture/core/models/user.dart';
-import 'package:http/http.dart' as http;
 
 class Api {
-  static const endpoint = 'https://jsonplaceholder.typicode.com';
-
   /// Internal data to store a list of filepaths
   List<String> filePaths = [];
 
-  var client = new http.Client();
+  // Future<User> getUserProfile(int userId) async {
+  //   // Get user profile for id
 
-  Future<User> getUserProfile(int userId) async {
-    // Get user profile for id
-    var response = await client.get('$endpoint/users/$userId');
-
-    // Convert and return
-    return User.fromJson(json.decode(response.body));
-  }
+  //   // Convert and return
+  //   return User.fromJson(json.decode(response.body));
+  // }
 
   // Future<String> get _localPath async {
   //   final directory = await getExternalStorageDirectory();

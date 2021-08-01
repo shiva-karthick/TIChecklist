@@ -1,15 +1,9 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:provider_architecture/core/models/post.dart';
-import 'package:provider_architecture/core/viewModels/home_model.dart';
-import 'package:provider_architecture/core/viewModels/postview_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
-import 'package:provider_architecture/ui/views/home_view.dart';
-import 'package:provider_architecture/ui/widgets/completion_status.dart';
 import 'package:provider_architecture/ui/widgets/fmw1_personnel.dart';
 import 'package:provider_architecture/ui/widgets/other_personnel.dart';
 import 'package:provider_architecture/ui/widgets/remarks.dart';
@@ -84,7 +78,7 @@ class _PostViewState extends State<PostView> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              // save(model);
+              setState(() {});
               Navigator.pop(context); // pop current page
               Navigator.pushNamed(context, "/"); // push it back in
             },

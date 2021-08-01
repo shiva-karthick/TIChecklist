@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
-import 'package:provider_architecture/core/viewModels/home_model.dart';
 import 'package:provider_architecture/core/viewModels/vehicle_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
@@ -21,8 +20,6 @@ import 'package:provider_architecture/ui/views/rid/vhf_radio_system/FirstColumnR
 import 'package:provider_architecture/ui/views/rid/vhf_radio_system/rightHandSideColumnRowVHF.dart';
 import 'package:provider_architecture/ui/views/rid/vras/FirstColumnRowVRAS.dart';
 import 'package:provider_architecture/ui/views/rid/vras/rightHandSideColumnRowVRAS.dart';
-import 'package:provider_architecture/ui/widgets/Key/formKey.dart';
-import 'package:provider_architecture/ui/widgets/completion_status.dart';
 import 'package:provider_architecture/ui/widgets/fmw1_personnel.dart';
 import 'package:provider_architecture/ui/widgets/global.dart' as global;
 import 'package:provider_architecture/ui/widgets/other_personnel.dart';
@@ -37,7 +34,6 @@ class RidView extends StatefulWidget {
 
 class _RidView extends State<RidView> {
   final _formKey = global.formKey;
-  // final _formKey = FormKeys().formKey;
 
   Map<String, dynamic> data;
 
@@ -77,7 +73,7 @@ class _RidView extends State<RidView> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              // save(model);
+              setState(() {});
               Navigator.pop(context); // pop current page
               Navigator.pushNamed(context, "/"); // push it back in
             },
@@ -180,97 +176,7 @@ class _RidView extends State<RidView> {
                                       return generateRightHandSideColumnRowExterior(
                                           context, index);
                                     },
-
                                     itemCount: 1,
-                                    // Table(
-                                    //   border: TableBorder.all(),
-                                    //   defaultColumnWidth: IntrinsicColumnWidth(),
-                                    //   defaultVerticalAlignment:
-                                    //       TableCellVerticalAlignment.middle,
-                                    //   children: <TableRow>[
-                                    //     TableRow(
-                                    //       children: <Widget>[
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Serial Number",
-                                    //             style: TextStyle(
-                                    //               fontSize: 16,
-                                    //               fontWeight: FontWeight.bold,
-                                    //             ),
-                                    //           ),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Equipment",
-                                    //             style: TextStyle(
-                                    //               fontSize: 16,
-                                    //               fontWeight: FontWeight.bold,
-                                    //             ),
-                                    //           ),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Task Description",
-                                    //             style: TextStyle(
-                                    //               fontSize: 16,
-                                    //               fontWeight: FontWeight.bold,
-                                    //             ),
-                                    //           ),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Expected Results",
-                                    //             style: TextStyle(
-                                    //               fontSize: 16,
-                                    //               fontWeight: FontWeight.bold,
-                                    //             ),
-                                    //           ),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Pass/Fail",
-                                    //             style: TextStyle(
-                                    //               fontSize: 16,
-                                    //               fontWeight: FontWeight.bold,
-                                    //             ),
-                                    //           ),
-                                    //         ),
-                                    //       ],
-                                    //     ),
-                                    //     TableRow(
-                                    //       children: <Widget>[
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Serial Number",
-                                    //             style: TextStyle(),
-                                    //           ),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text("Equipment"),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text("Task Description"),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text("Expected Results"),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text("Pass/Fail"),
-                                    //         ),
-                                    //       ],
-                                    //     ),
-                                    //   ],
-                                    // ),
                                   ),
                                 ),
                               )

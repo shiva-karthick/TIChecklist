@@ -8,7 +8,8 @@ class Post {
     return Post(data);
   }
 
-  // // RETURN TYPE function_name(){}
+  /// Example of how to convert data to JSON format
+
   // Map<String, dynamic> toJson() {
   //   final Map<String, dynamic> data = new Map<String, dynamic>();
   //   data['userId'] = this.userId;
