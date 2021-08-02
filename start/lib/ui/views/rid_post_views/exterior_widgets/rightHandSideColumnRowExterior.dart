@@ -345,7 +345,7 @@ Widget generateRightHandSideColumnRowExterior(
             Container(
               child: Text("a. Check bolts securing both brackets to the mast"),
               width: 125,
-              height: 62,
+              height: 64,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),

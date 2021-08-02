@@ -64,6 +64,49 @@ class _PostViewState extends State<PostView> {
     }
   }
 
+  void saveBeforeExit(VehicleModel model) {
+    final validationSuccess = _formKey.currentState.validate();
+    if (validationSuccess) {
+      // Save the Form data.
+      _formKey.currentState.save();
+      data = _formKey.currentState.value;
+
+      // Add
+      // 1. the total number of missing & faulty items.
+      // 2. Create 2 key-value pairs MissingItems & FaultyItems and add to a clone of data Map.
+      dataKeys = data.keys.toList();
+      int missingItems = 0;
+      for (var key in dataKeys) {
+        if (key.contains('missing')) {
+          if (data[key] == false) {
+            missingItems++;
+          }
+        }
+      }
+      int faultyItems = 0;
+      for (var key in dataKeys) {
+        if (key.contains('faulty')) {
+          if (data[key] == false) {
+            faultyItems++;
+          }
+        }
+      }
+
+      Map<String, dynamic> dataCopy;
+      dataCopy = Map<String, dynamic>.from(data)
+        ..addAll({
+          'total_missing_items': missingItems,
+          'total_faulty_items': faultyItems,
+        });
+
+      // Save the data as a JSON file.
+      model.requestPermissionAndWriteData(dataCopy);
+
+      /// Find the ScaffoldMessenger in the widget tree and use it to show a SnackBar.
+      ScaffoldMessenger.of(context).showSnackBar(saveSnackBar);
+    }
+  }
+
   List<String> dataKeys;
 
   @override
@@ -79,6 +122,9 @@ class _PostViewState extends State<PostView> {
           leading: IconButton(
             onPressed: () {
               setState(() {});
+
+              saveBeforeExit(model);
+
               Navigator.pop(context); // pop current page
               Navigator.pushNamed(context, "/"); // push it back in
             },
@@ -130,8 +176,7 @@ class _PostViewState extends State<PostView> {
                   'total_missing_items': missingItems,
                   'total_faulty_items': faultyItems,
                 });
-              print("total_missing_items : $missingItems");
-              print("total_faulty_items : $faultyItems");
+
               // Save the data as a JSON file.
               model.requestPermissionAndWriteData(dataCopy);
 
@@ -211,97 +256,7 @@ class _PostViewState extends State<PostView> {
                                       return generateRightHandSideColumnRowExterior(
                                           context, index, widget.post);
                                     },
-
                                     itemCount: 1,
-                                    // Table(
-                                    //   border: TableBorder.all(),
-                                    //   defaultColumnWidth: IntrinsicColumnWidth(),
-                                    //   defaultVerticalAlignment:
-                                    //       TableCellVerticalAlignment.middle,
-                                    //   children: <TableRow>[
-                                    //     TableRow(
-                                    //       children: <Widget>[
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Serial Number",
-                                    //             style: TextStyle(
-                                    //               fontSize: 16,
-                                    //               fontWeight: FontWeight.bold,
-                                    //             ),
-                                    //           ),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Equipment",
-                                    //             style: TextStyle(
-                                    //               fontSize: 16,
-                                    //               fontWeight: FontWeight.bold,
-                                    //             ),
-                                    //           ),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Task Description",
-                                    //             style: TextStyle(
-                                    //               fontSize: 16,
-                                    //               fontWeight: FontWeight.bold,
-                                    //             ),
-                                    //           ),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Expected Results",
-                                    //             style: TextStyle(
-                                    //               fontSize: 16,
-                                    //               fontWeight: FontWeight.bold,
-                                    //             ),
-                                    //           ),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Pass/Fail",
-                                    //             style: TextStyle(
-                                    //               fontSize: 16,
-                                    //               fontWeight: FontWeight.bold,
-                                    //             ),
-                                    //           ),
-                                    //         ),
-                                    //       ],
-                                    //     ),
-                                    //     TableRow(
-                                    //       children: <Widget>[
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text(
-                                    //             "Serial Number",
-                                    //             style: TextStyle(),
-                                    //           ),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text("Equipment"),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text("Task Description"),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text("Expected Results"),
-                                    //         ),
-                                    //         Container(
-                                    //           padding: const EdgeInsets.all(8.0),
-                                    //           child: Text("Pass/Fail"),
-                                    //         ),
-                                    //       ],
-                                    //     ),
-                                    //   ],
-                                    // ),
                                   ),
                                 ),
                               )
@@ -540,7 +495,7 @@ class _PostViewState extends State<PostView> {
                                 child: SizedBox(
                                   width:
                                       1000, // Should be more than the rightHandSideColumnWidth
-                                  height: 4200, //
+                                  height: 4250, //
                                   child: HorizontalDataTable(
                                     leftHandSideColumnWidth: 100,
                                     rightHandSideColumnWidth: 800,
@@ -593,7 +548,7 @@ class _PostViewState extends State<PostView> {
                                 child: SizedBox(
                                   width:
                                       1000, // Should be more than the rightHandSideColumnWidth
-                                  height: 530, //
+                                  height: 550, //
                                   child: HorizontalDataTable(
                                     leftHandSideColumnWidth: 100,
                                     rightHandSideColumnWidth: 800,
@@ -679,13 +634,6 @@ class _PostViewState extends State<PostView> {
 
 List<Widget> _getTitleWidget() {
   return [
-    // TextButton(
-    //   style: TextButton.styleFrom(
-    //     padding: EdgeInsets.zero,
-    //   ),
-    //   child: Text("Name"),
-    //   onPressed: () {},
-    // ),
     _getTitleItemWidget('S/N', 100),
     _getTitleItemWidget('Task Description', 125),
     _getTitleItemWidget('Expected Results', 175),

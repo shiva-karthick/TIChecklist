@@ -296,7 +296,7 @@ Widget generateRightHandSideColumnRowMiscPart1(
               child: Text(
                   "a. Check for physical condition, loose bolts, nuts and wiring connection"),
               width: 125,
-              height: 85,
+              height: 88,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
@@ -657,7 +657,7 @@ Widget generateRightHandSideColumnRowMiscPart1(
               child: Text(
                   "a. Check for physical condition, loose bolts, nuts and wiring connection"),
               width: 125,
-              height: 80,
+              height: 88,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
@@ -784,7 +784,7 @@ Widget generateRightHandSideColumnRowMiscPart1(
               child: Text(
                   "a. Check for physical condition, loose bolts, nuts and wiring connection"),
               width: 125,
-              height: 80,
+              height: 88,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
@@ -976,7 +976,7 @@ Widget generateRightHandSideColumnRowMiscPart1(
                 ),
               ),
               width: 112,
-              height: 52,
+              height: 80,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),

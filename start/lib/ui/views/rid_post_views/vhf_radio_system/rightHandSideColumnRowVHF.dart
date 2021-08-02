@@ -17,7 +17,7 @@ Widget generateRightHandSideColumnRowVHF(
               child: Text(
                   "a. Check for physical condition, loose strap & wiring condition"),
               width: 125,
-              height: 80,
+              height: 88,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
@@ -354,7 +354,7 @@ Widget generateRightHandSideColumnRowVHF(
               child: Text(
                   "a. Check for physical condition, loose strap & wiring condition"),
               width: 125,
-              height: 80,
+              height: 88,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
@@ -691,7 +691,7 @@ Widget generateRightHandSideColumnRowVHF(
               child: Text(
                   "a. Check for physical condition, loose strap & wiring condition"),
               width: 125,
-              height: 80,
+              height: 88,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
@@ -1028,7 +1028,7 @@ Widget generateRightHandSideColumnRowVHF(
               child: Text(
                   "a. Check for physical condition, loose strap & wiring condition"),
               width: 125,
-              height: 80,
+              height: 88,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
@@ -1365,7 +1365,7 @@ Widget generateRightHandSideColumnRowVHF(
               child: Text(
                   "a. Check for physical condition, loose strap & wiring condition"),
               width: 125,
-              height: 80,
+              height: 88,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
@@ -1702,7 +1702,7 @@ Widget generateRightHandSideColumnRowVHF(
               child: Text(
                   "a. Check for physical condition, loose strap & wiring condition"),
               width: 125,
-              height: 80,
+              height: 88,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),
