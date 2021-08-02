@@ -11,6 +11,7 @@ import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/floating_button.dart';
 import 'package:provider_architecture/ui/widgets/postlist_item.dart';
 import 'dart:async';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -40,7 +41,6 @@ class _HomeViewState extends State<HomeView> {
               icon: Icon(Icons.refresh),
               onPressed: () {
                 model.getFiles();
-                setState(() {});
               },
             ),
           ],
@@ -70,7 +70,7 @@ class _HomeViewState extends State<HomeView> {
                           )
                         : Padding(
                             padding:
-                                const EdgeInsets.fromLTRB(8.0, 240.0, 8.0, 8.0),
+                                const EdgeInsets.fromLTRB(8.0, 160.0, 8.0, 8.0),
                             child: Center(
                               child: Text(
                                 " No posts here. \n Click the green button to get started.",

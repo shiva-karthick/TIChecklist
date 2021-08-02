@@ -334,7 +334,7 @@ Widget generateRightHandSideColumnRowVRAS(
                 ],
               ),
               width: 175,
-              height: 96,
+              height: 104,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),

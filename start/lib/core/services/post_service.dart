@@ -9,7 +9,7 @@ class PostsService {
   List<Post> _posts;
   List<Post> get posts => _posts;
 
-  Future getPosts() async {
+  Future<List<Post>> getPosts() async {
     return await _api.getPostsForUser();
   }
 

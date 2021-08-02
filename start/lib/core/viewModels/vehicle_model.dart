@@ -1,3 +1,4 @@
+import 'dart:io' show Platform;
 import 'dart:io';
 import 'dart:convert';
 import 'package:intl/intl.dart';
@@ -9,8 +10,15 @@ class VehicleModel extends BaseModel {
   Map<String, dynamic> modifiedData = {};
 
   Future<String> get localPath async {
-    final directory = await getExternalStorageDirectory();
-    return directory.path;
+    // final directory = await getExternalStorageDirectory();
+    // return directory.path;
+    if (Platform.isAndroid) {
+      final directory = await getExternalStorageDirectory();
+      return directory.path;
+    } else {
+      final directory = await getApplicationDocumentsDirectory();
+      return directory.path;
+    }
   }
 
   // Future<File> get localFile async {

@@ -754,7 +754,7 @@ Widget generateRightHandSideColumnRowMiscPart2(
                 ],
               ),
               width: 175,
-              height: 144,
+              height: 176,
               padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
             ),

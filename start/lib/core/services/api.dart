@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io' show Platform;
 import 'dart:io';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart';
@@ -22,9 +23,16 @@ class Api {
 
   /// Get all the files in the directory
   Future<void> _showFilesinDir() async {
-    final dir = await getExternalStorageDirectory();
+    // if (Platform.isAndroid) {
+    //   final dir = await getExternalStorageDirectory();
+    // } else if (Platform.isIOS) {
+    //   final dir = await getApplicationDocumentsDirectory();
+    // }
+    final dir = Platform.isAndroid
+        ? await getExternalStorageDirectory()
+        : await getApplicationDocumentsDirectory();
 
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 15; i++) {
       dir.list(recursive: false, followLinks: false).listen(
         (FileSystemEntity entity) {
           filePaths = filePaths.toSet().toList();
@@ -78,11 +86,13 @@ class Api {
     return posts;
   }
 
-  Future<int> deleteFile(File fileName) async {
+  Future<int> deleteFile(String fileName) async {
     try {
-      final file = await fileName;
-
-      await file.delete();
+      filePaths.removeWhere((element) => element == fileName);
+      final file = File(fileName);
+      if (await file.exists()) {
+        await file.delete();
+      }
       return 1;
     } catch (e) {
       return 0;

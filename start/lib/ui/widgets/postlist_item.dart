@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:path_provider/path_provider.dart';
 import 'package:share_extend/share_extend.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:provider_architecture/core/services/api.dart';
 import 'package:provider_architecture/locator.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'dart:io' show Platform;
 
 // Add the charts here
 class PostListItem extends StatefulWidget {
@@ -22,6 +24,13 @@ class _PostListItemState extends State<PostListItem> {
   Api _api = locator<Api>();
 
   final deleteSnackBar = SnackBar(content: Text('Deleted successfully 🗑'));
+
+  Future<String> get localPath async {
+    final dir = Platform.isAndroid
+        ? await getExternalStorageDirectory()
+        : await getApplicationDocumentsDirectory();
+    return dir.path;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,15 +133,15 @@ class _PostListItemState extends State<PostListItem> {
                         fontWeight: FontWeight.bold, fontSize: 17.0),
                   ),
                   circularStrokeCap: CircularStrokeCap.round,
-                  progressColor: Colors.purple,
+                  progressColor: Colors.orange,
                 ),
                 UIHelper.horizontalSpaceSmall(),
                 ElevatedButton(
                   onPressed: () {
-                    // setState(() {});
+                    setState(() {});
 
                     ShareExtend.share(
-                        "/storage/emulated/0/Android/data/com.example.start/files/${widget.post.json['node_number']}.json",
+                        "${localPath}/${widget.post.json['node_number']}.json",
                         "file");
                   },
                   child: Icon(
@@ -174,11 +183,10 @@ class _PostListItemState extends State<PostListItem> {
                 ),
                 UIHelper.horizontalSpaceSmall(),
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     setState(() {});
                     _api.deleteFile(
-                      File(
-                          "/storage/emulated/0/Android/data/com.example.start/files/${widget.post.json['node_number']}.json"),
+                      "${await localPath}/${widget.post.json['node_number']}.json",
                     );
                     ScaffoldMessenger.of(context).showSnackBar(deleteSnackBar);
                     Navigator.pop(context); // pop current page

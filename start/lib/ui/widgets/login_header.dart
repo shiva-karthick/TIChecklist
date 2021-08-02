@@ -65,8 +65,10 @@ class LoginTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: TextField(
-          decoration: InputDecoration.collapsed(hintText: 'Enter name'),
-          controller: controller),
+        decoration: InputDecoration.collapsed(hintText: 'Enter name'),
+        controller: controller,
+        enableInteractiveSelection: true,
+      ),
     );
   }
 }

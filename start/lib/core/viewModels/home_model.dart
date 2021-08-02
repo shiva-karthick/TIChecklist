@@ -13,10 +13,12 @@ class HomeModel extends BaseModel {
   List<Post> _posts;
   List<Post> get posts => _posts;
 
-  Future getFiles() async {
+  Future<void> getFiles() async {
     setState(ViewState.Busy);
     _posts = await _postsService.getPosts();
-    notifyListeners();
+    setState(ViewState.Idle);
+    setState(ViewState.Busy);
+    _posts = await _postsService.getPosts();
     setState(ViewState.Idle);
   }
 
