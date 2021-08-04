@@ -38,7 +38,7 @@ dependencies:
   percent_indicator: "^2.1.7+2" # For showing graphs
   dartdoc: ^1.0.0 # For documenting code, creating HTML files
   share_extend: "^2.0.0" # A Flutter plugin to share content from your Flutter app via the platform's share dialog.
-  shared_preferences: ^2.0.6 # For storing names, so user won't have to key in for each login
+  flutter_markdown: ^0.6.4
 
 
 
@@ -48,6 +48,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.9.1"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
@@ -61,6 +62,30 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/background.jpg
+   - assets/app_icon.png
+   - assets/refresh_button.jpg
+   - assets/Xplore_images/Xplore_1.jpg
+   - assets/Xplore_images/Xplore_2.jpg
+   - assets/Xplore_images/Xplore_3.jpg
+   - assets/Xplore_images/Xplore_4.jpg
+   - assets/Xplore_images/Xplore_5.jpg
+   - assets/Xplore_images/Xplore_6.jpg
+   - assets/Xplore_images/Xplore_play_store.jpg
+   - assets/genie_images/genie_1.jpg
+   - assets/genie_images/genie_2.jpg
+   - assets/genie_images/genie_3.jpg
+   - assets/genie_images/genie_4.jpg
+   - assets/genie_images/genie_5.jpg
+   - assets/genie_images/genie_6.jpg
+   - assets/app_screenshots/app_1.jpg
+   - assets/app_screenshots/app_2.jpg
+   - assets/app_screenshots/app_3.jpg
+   - assets/app_screenshots/app_4.jpg
+   - assets/app_screenshots/app_5.jpg
+   - assets/app_screenshots/app_6.jpg
+   - assets/app_screenshots/app_7.jpg
+   - assets/app_screenshots/app_8.jpg
+   - assets/app_screenshots/app_9.jpg
   #  - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

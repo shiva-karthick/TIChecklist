@@ -77,7 +77,7 @@ class _RidView extends State<RidView> {
               Navigator.pop(context); // pop current page
               Navigator.pushNamed(context, "/"); // push it back in
             },
-            icon: Icon(Icons.arrow_back_ios_new),
+            icon: Icon(Icons.arrow_back),
           ),
           title: Text('Setting up RID ...'),
           actions: <Widget>[

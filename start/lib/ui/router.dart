@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider_architecture/core/models/post.dart';
 import 'package:provider_architecture/ui/views/home_view.dart';
 import 'package:provider_architecture/ui/views/login_view.dart';
+import 'package:provider_architecture/ui/views/menu_views/licenses_view.dart';
+import 'package:provider_architecture/ui/views/menu_views/help_view.dart';
 import 'package:provider_architecture/ui/views/post_view.dart';
 import 'package:provider_architecture/ui/views/rid_view.dart';
 
@@ -14,10 +16,25 @@ class myRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => HomeView());
+        return MaterialPageRoute(
+          builder: (_) => HomeView(),
+        );
       case '/login':
-        return MaterialPageRoute(builder: (_) => LoginView());
-
+        return MaterialPageRoute(
+          builder: (_) => LoginView(),
+        );
+      case '/rid':
+        return MaterialPageRoute(
+          builder: (_) => RidView(),
+        );
+      case '/Help':
+        return MaterialPageRoute(
+          builder: (_) => HelpView(),
+        );
+      case '/Licenses':
+        return MaterialPageRoute(
+          builder: (_) => LicensesView(),
+        );
       case '/post':
         var post = settings.arguments as Post;
         return MaterialPageRoute(

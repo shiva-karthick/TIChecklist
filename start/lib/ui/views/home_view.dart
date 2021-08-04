@@ -11,7 +11,6 @@ import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/floating_button.dart';
 import 'package:provider_architecture/ui/widgets/postlist_item.dart';
 import 'dart:async';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -33,7 +32,7 @@ class _HomeViewState extends State<HomeView> {
               Navigator.pop(context); // pop current page
               Navigator.pushNamed(context, "/login"); // push it back in
             },
-            icon: Icon(Icons.arrow_back_ios_new),
+            icon: Icon(Icons.arrow_back),
           ),
           title: Text('Welcome ${Provider.of<User>(context).username}'),
           actions: [
@@ -41,6 +40,26 @@ class _HomeViewState extends State<HomeView> {
               icon: Icon(Icons.refresh),
               onPressed: () {
                 model.getFiles();
+              },
+            ),
+            PopupMenuButton<String>(
+              onSelected: (value) {
+                switch (value) {
+                  case 'Help':
+                    Navigator.pushNamed(context, "/Help");
+                    break;
+                  case 'Licenses':
+                    Navigator.pushNamed(context, "/Licenses");
+                    break;
+                }
+              },
+              itemBuilder: (BuildContext context) {
+                return {'Help', 'Licenses'}.map((String choice) {
+                  return PopupMenuItem<String>(
+                    value: choice,
+                    child: Text(choice),
+                  );
+                }).toList();
               },
             ),
           ],

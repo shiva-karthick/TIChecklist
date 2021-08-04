@@ -128,7 +128,7 @@ class _PostViewState extends State<PostView> {
               Navigator.pop(context); // pop current page
               Navigator.pushNamed(context, "/"); // push it back in
             },
-            icon: Icon(Icons.arrow_back_ios_new),
+            icon: Icon(Icons.arrow_back),
           ),
           title: Text('Diving deep into RID'),
           actions: <Widget>[

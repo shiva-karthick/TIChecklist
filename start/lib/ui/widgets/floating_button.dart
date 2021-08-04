@@ -1,5 +1,3 @@
-import 'package:provider_architecture/ui/views/post_view.dart';
-import 'package:provider_architecture/ui/views/rid_view.dart';
 import 'package:unicorndial/unicorndial.dart';
 import 'package:flutter/material.dart';
 
@@ -44,10 +42,13 @@ class floatingActionButton extends StatelessWidget {
             backgroundColor: Colors.blueAccent,
             child: Icon(Icons.radio_sharp),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => RidView()),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => RidView(),
+              //   ),
+              // );
+              Navigator.pushNamed(context, "/rid");
             },
           ),
         ),
