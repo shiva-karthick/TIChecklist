@@ -9,25 +9,20 @@ class Api {
   /// Internal data to store a list of filepaths
   List<String> filePaths = [];
 
-  // Future<User> getUserProfile(int userId) async {
-  //   // Get user profile for id
-
-  //   // Convert and return
-  //   return User.fromJson(json.decode(response.body));
-  // }
-
   // Future<String> get _localPath async {
   //   final directory = await getExternalStorageDirectory();
   //   return directory.path;
   // }
 
   /// Get all the files in the directory
+  ///
+  /// See https://flutter.dev/docs/cookbook/persistence/reading-writing-files
   Future<void> _showFilesinDir() async {
-    // if (Platform.isAndroid) {
-    //   final dir = await getExternalStorageDirectory();
-    // } else if (Platform.isIOS) {
-    //   final dir = await getApplicationDocumentsDirectory();
-    // }
+    /// if (Platform.isAndroid) {
+    ///   final dir = await getExternalStorageDirectory();
+    /// } else if (Platform.isIOS) {
+    ///   final dir = await getApplicationDocumentsDirectory();
+    /// }
     final dir = Platform.isAndroid
         ? await getExternalStorageDirectory()
         : await getApplicationDocumentsDirectory();
@@ -43,13 +38,15 @@ class Api {
     }
   }
 
+  /// Retrieve all files stored in the local storage for the user.
+  ///
+  /// Show them in the Home Screen.
+  /// See https://flutter.dev/docs/cookbook/persistence/reading-writing-files
   Future<List<Post>> getPostsForUser() async {
     // Get all the directory names stores in a List
     _showFilesinDir();
 
     List<Post> posts = [];
-    // Get user posts for id
-    // var response = await client.get('$endpoint/posts?userId=$userId');
 
     if (await Permission.storage.request().isGranted) {
       for (var path in filePaths) {
@@ -86,6 +83,9 @@ class Api {
     return posts;
   }
 
+  /// Deletes the file at the given path for both Android and IOS.
+  ///
+  /// See https://flutter.dev/docs/cookbook/persistence/reading-writing-files
   Future<int> deleteFile(String fileName) async {
     try {
       filePaths.removeWhere((element) => element == fileName);
@@ -98,21 +98,4 @@ class Api {
       return 0;
     }
   }
-
-  // Future<List<Comment>> getCommentsForPost(int postId) async {
-  //   List<Comment> comments = [];
-
-  //   // Get comments for post
-  //   var response = await client.get('$endpoint/comments?postId=$postId');
-
-  //   // Parse into List
-  //   var parsed = json.decode(response.body) as List<dynamic>;
-
-  //   // Loop and convert each item to a Comment
-  //   for (var comment in parsed) {
-  //     comments.add(Comment.fromJson(comment));
-  //   }
-
-  //   return comments;
-  // }
 }

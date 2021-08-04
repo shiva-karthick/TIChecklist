@@ -5,6 +5,8 @@ import 'package:markdown/markdown.dart' as md;
 const String markDownSource = ''' 
 # User Guide
 
+### **NOTE :  You MUST allow permission to access your storage to use this app.**
+
 ### **Step 1 : Login Page.**
 ### There are no fixed username/password, the login name is optional. You can choose to enter your desired name in the text box.
 ![app_1](resource:assets/app_screenshots/app_2.jpg)

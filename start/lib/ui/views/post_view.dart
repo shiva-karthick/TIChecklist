@@ -40,6 +40,8 @@ class _PostViewState extends State<PostView> {
 
   Map<String, dynamic> data;
 
+  /// Boolean variable to hide and show different parts of the checklist
+  /// See https://stackoverflow.com/questions/44489804/show-hide-widgets-in-flutter-programmatically
   bool visibilityExterior = true;
   bool visibilityElectricalSystem = true;
   bool visibilityMiscellaneousPart1 = true;
@@ -53,6 +55,11 @@ class _PostViewState extends State<PostView> {
   final undoSnackBar = SnackBar(content: Text('Undo 🔄'));
   final errorSnackBar = SnackBar(content: Text('Fill up required fields❗️ 🔺'));
 
+  /// Saves the data as a JSON file and writes in the directory.
+  ///
+  /// This is used in the button functionality.
+  /// Once the data is validated, call the VehicleModel.requestPersmissionAndWriteData().
+  /// Show a dialog to confirm the data is saved.
   void save(VehicleModel model) {
     final validationSuccess = _formKey.currentState.validate();
     if (validationSuccess) {

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:provider_architecture/core/viewModels/postview_model.dart';
-import 'package:provider_architecture/locator.dart';
 
 class FMW1personnel extends StatefulWidget {
   final String fmw1Personnel;

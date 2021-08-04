@@ -10,6 +10,8 @@ void main() {
   runApp(MyApp());
 }
 
+// Starting point for the app.
+// Uses stream provider to create a new user and then redirects to the login page.
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

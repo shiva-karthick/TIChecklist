@@ -12,12 +12,4 @@ class PostsService {
   Future<List<Post>> getPosts() async {
     return await _api.getPostsForUser();
   }
-
-  // void incrementLikes(int postId) {
-  //   _posts.firstWhere((post) => post.id == postId).likes++;
-  // }
-
-  // void decrementLikes(int postId) {
-  //   _posts.firstWhere((post) => post.id == postId).likes--;
-  // }
 }

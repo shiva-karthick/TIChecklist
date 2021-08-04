@@ -9,6 +9,11 @@ class LoginModel extends BaseModel {
 
   String errorMessage;
 
+  /// Temporarily saves the user's name to show in the Home screen using Streams
+  /// See https://dart.dev/tutorials/language/streams
+  ///
+  /// Takes [userIDText] as a parameter, validates the data, and passes the value to
+  /// Authentication Service.
   Future<bool> login(userIDText) async {
     setState(ViewState.Busy);
 

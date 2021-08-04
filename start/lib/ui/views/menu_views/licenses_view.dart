@@ -212,7 +212,7 @@ class LicensesView extends StatelessWidget {
         applicationName: "TIChecklist",
         applicationVersion: "v1.0.0",
         applicationLegalese:
-            "Developed by CFC Shankar under the guidance and support from ME3 Chee Tong. CFC Shankar is the original author and all rules stated by the Apache Lcense 2.0 must be abided. Please read the document attached in the Github folder.",
+            "Developed by CFC Shankar under the guidance and support from ME3 Chee Tong. CFC Shankar is the original author and all rules stated by the Apache Lcense 2.0 must be abided. Please read the document attached in the Github folder. \n\n I would like to give huge thanks ME3 Ng Chee Tong for providing me a woderful opportunity to work in this project. \n\nI also would like to thank 3SG Prem Yadunand for his support and guidance. \nI would not have completed the project successfully wihtout their support. \nI am truly grateful for their support. \nThank You to all of my dear friends and superiors for your encouragement and motivation.",
       ),
     );
   }

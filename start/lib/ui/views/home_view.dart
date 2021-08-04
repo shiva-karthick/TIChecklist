@@ -5,12 +5,9 @@ import 'package:provider_architecture/core/models/post.dart';
 import 'package:provider_architecture/core/models/user.dart';
 import 'package:provider_architecture/core/viewModels/home_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
-import 'package:provider_architecture/ui/shared/text_styles.dart';
-import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/floating_button.dart';
 import 'package:provider_architecture/ui/widgets/postlist_item.dart';
-import 'dart:async';
 
 class HomeView extends StatefulWidget {
   @override
@@ -22,6 +19,9 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return BaseView<HomeModel>(
       onModelReady: (model) {
+        // Call something on the model,
+        // perform any starting logic code we want to use,
+        /// Retrieves files from the local storage directory and shows them in the list.
         model.getFiles();
       },
       builder: (context, model, child) => Scaffold(
