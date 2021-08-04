@@ -2,6 +2,9 @@
 
 This project is adapted from [here](https://www.filledstacks.com/post/flutter-architecture-my-provider-implementation-guide) where we setup a sample Flutter app using the Provider package.
 
+#### Technical documentation is in the doc/api folder. Open the index.html page in Google Chrome or any web browser.
+TIChecklist/start/doc/api/index.html
+
 ## High Level Architecture Overview
 1. Each view will have it's own model that extends the ChangeNotifier.
 2. Notify listeners for a view will ONLY BE CALLED when the View's state changes.
