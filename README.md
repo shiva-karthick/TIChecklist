@@ -47,11 +47,11 @@
 
 This project was successfully completed in the course of 3 months and submitted to ME3 Ng Chee Tong.
 - I thank ME3 Ng Chee Tong for providing me a woderful opportunity to work in this project.
-- I also would like to thank 3SG Prem Yadunand for his support and guidance. 
-- I would not have completed the project successfully wihtout their support.
+- I also would like to thank 3SG Prem Yadunand @yadunut for his support and guidance. 
+- I would not have completed the project successfully without their support.
 - I am truly grateful for their support. 
 Thank You to all of my dear friends and superiors for your encouragement and motivation.
 
 ## Certificate of Achievement
 
-![Shankar testimonial](../TIChecklist/start/assets/shankar_testimonial.jpg)
+![Shankar testimonial](./shankar_testimonial.jpg)
